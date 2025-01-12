@@ -1,0 +1,52 @@
+.main{
+  position: relative; width:100%;
+}
+
+.app-header{
+  position: absolute; width:100%; top:0; left:0; z-index: 9000;
+  display: flex; justify-content: center; height: 100px;
+  >.inner{
+    position: relative; width: 100%; max-width: 1600px; height: 100px;
+    display: flex; align-items: center;
+    >.logo{
+      display: block; width:176px; position: absolute; left:24px;
+      >img{ max-width: 100%;}
+    }
+    >.btns-wrap{
+      position: absolute; right:0;
+    }
+    >.nav-menu{
+      position: relative; width:100%; max-width: 560px; margin: 0 auto;
+      display: flex; flex-direction: row; justify-content: space-between;
+      >.menu-item{
+        font-size: 20px; font-weight: 600;
+      }
+    }
+    >.right-util{
+      position: absolute; right:24px;
+      >img{ max-width: 104px;}
+    }
+  }
+}
+
+.section {
+  position: relative; width:100%; height: 100vh; min-height: 720px; 
+}
+.section-hero{
+  position: relative; width:100%; height: 100vh; min-height: 720px; overflow: hidden;
+  display: flex; align-items: center;
+  .hero-title{
+    width: 100%; display: flex; justify-content: center;
+    >.hero-title-inner{
+      width: 1010px; position: relative;
+      >img{ max-width: 100%; }
+    }
+  }
+}
+.hero-video-wrap{
+  position: fixed; width:196px; height:137px; overflow: hidden; top: calc(50% - 140px); right: calc(50% - 360px);
+  border-radius: 12px;
+  >.hero-video{
+    position: absolute; object-fit: cover; width:100%; height:100%;
+  }
+}
