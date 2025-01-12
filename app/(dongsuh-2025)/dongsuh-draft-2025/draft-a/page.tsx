@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image";
+// import Image from "next/image";
 import "../../styles/draft_a.scss";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, EffectFade, Pagination } from 'swiper/modules';
