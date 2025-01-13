@@ -90,7 +90,7 @@ body {
 }
 .hero-pagination{
   width: 500px; position: absolute; bottom: 40px; right: 40px;
-  display: flex; z-index: 10; gap:16px;
+  display: flex; z-index: 10; gap:16px; cursor: pointer;
   >.pagination-item{ 
     display: inline-block; width: 140px; color:white; padding: 12px 0;
     border-top: 1px solid white; opacity: 0.5;
@@ -102,13 +102,13 @@ body {
     }
   } 
 }
-.swiper-pagination {
+/* .swiper-pagination {
   width: 500px; position: absolute; bottom: 40px !important; right: 40px !important;
   display: flex; z-index: 10; gap:16px; color: white;
   .swiper-pagination-bullet-active{
     opacity: 1;
   }
-}
+} */
 
 .section-product{
   >.product-card-wrap{

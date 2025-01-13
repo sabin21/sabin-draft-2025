@@ -40,7 +40,7 @@ export default function Home() {
                 <span>- 삶의향기 매거진, SNS 콘텐츠 들을 배치하여 동서식품 관련 컨텐츠를 최대한 전달</span>
               </li>
             </ul>
-            <Link className='draft-link' href={"dongsuh-draft-2025/draft-a"}>디자인시안 (Desktop 버전)</Link>
+            <Link className='draft-link' href={"dongsuh-draft-2025/draft-a"} target="_blank">디자인시안 (Desktop 버전)</Link>
           </div>
 
           <div className="content-block">
@@ -53,7 +53,7 @@ export default function Home() {
                 <span>- 제품, 브랜드 섹션을 우선 배치하여 사용자가 보다 제품과 브랜드에 집중하도록 함</span>
               </li>
             </ul>
-            <Link className='draft-link' href={"dongsuh-draft-2025/draft-b"}>디자인시안 (Desktop 버전)</Link>
+            <Link className='draft-link' href={"dongsuh-draft-2025/draft-b"} target="_blank">디자인시안 (Desktop 버전)</Link>
           </div>
 
         </div>

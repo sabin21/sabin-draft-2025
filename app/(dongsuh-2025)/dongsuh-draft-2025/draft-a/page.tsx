@@ -2,6 +2,8 @@
 
 // import { useRef } from 'react';
 
+import Image from "next/image";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
@@ -43,6 +45,7 @@ export default function DraftBHome() {
   });
 
   return (
+    <div>
       <main className="main">
 
         <header className="app-header">
@@ -185,9 +188,21 @@ export default function DraftBHome() {
           </div>
           
         </section>
+        
+        <section className="section section-webzine">
+          <span className="back-color"></span>
+          <Image src={"/dongsuh_2025/webzine_full.png"} alt="" width={1402} height={1320} className="full-img"></Image>
+        </section>
 
+        <section className="section section-sns">
+          <Image src={"/dongsuh_2025/sns_full.png"} alt="" width={1402} height={560} className="full-img"></Image>
+        </section>
       </main>
-      
+
+      <footer className="footer">
+        <img src="/dongsuh_2025/draft_b/footer.png" className="full-img" />
+      </footer>
+    </div>
 
   );
 }

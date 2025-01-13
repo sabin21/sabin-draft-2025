@@ -49,8 +49,8 @@ export default function DraftBHome() {
               pagination={{
                 el: '.hero-pagination',
                 clickable: true,
-                renderBullet: function (index) {
-                  return '<span class="' + "pagination-item"  + '">' + (heroMenu[index]) + '</span>';
+                renderBullet: function (index, className) {
+                  return '<span class="' + "pagination-item " + className + '">' + (heroMenu[index]) + '</span>';
                 },
               }}
               className="hero-swiper-container" >
@@ -78,17 +78,7 @@ export default function DraftBHome() {
                   <h2>나를 찾는 순간, <br />나를 찾는 커피</h2>
                 </div>
               </SwiperSlide>
-              <div className="hero-pagination swiper-pagination">
-                {/* <a className="pagination-item swiper-pagination-bullet">
-                  <span className="title">찬바람 불때 <br/> 미떼</span>
-                </a>
-                <a className="pagination-item swiper-pagination-bullet">
-                  <span className="title">ㅇㄻㅇㄹ <br/> 미떼</span>
-                </a>
-                <a className="pagination-item swiper-pagination-bullet">
-                  <span className="title">찬바람 불때 <br/> 미떼</span>
-                </a> */}
-              </div>
+              <div className="hero-pagination swiper-pagination"></div>
             </Swiper>
 
         </section>
@@ -153,7 +143,7 @@ export default function DraftBHome() {
       <footer className="footer">
         <img src="/dongsuh_2025/draft_b/footer.png" className="full-img" />
       </footer>
-      </div>
+    </div>
       
       
 
