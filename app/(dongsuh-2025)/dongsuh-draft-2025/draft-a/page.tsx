@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useRef, useState, useEffect } from 'react';
-import { useMouse } from 'react-use';
+// import React, { useRef, useState, useEffect } from 'react';
+// import { useMouse } from 'react-use';
 
 import Image from "next/image";
 
