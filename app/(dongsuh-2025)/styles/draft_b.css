@@ -1,3 +1,14 @@
+:root {
+  --color-text: navy;
+  --color-bg: papayawhip;
+  --color-bg-accent: #ecdcc0;
+  --size: 320px;
+  --gap: calc(var(--size) / 14);
+  --duration: 60s;
+  --scroll-start: 0;
+  --scroll-end: calc(-100% - var(--gap));
+}
+
 body {
   scrollbar-width: 1px;
 }
@@ -88,6 +99,7 @@ body {
   }
   
 }
+
 .hero-pagination{
   width: 500px; position: absolute; bottom: 40px; right: 40px;
   display: flex; z-index: 10; gap:16px; cursor: pointer;
@@ -102,13 +114,6 @@ body {
     }
   } 
 }
-/* .swiper-pagination {
-  width: 500px; position: absolute; bottom: 40px !important; right: 40px !important;
-  display: flex; z-index: 10; gap:16px; color: white;
-  .swiper-pagination-bullet-active{
-    opacity: 1;
-  }
-} */
 
 .section-product{
   >.product-card-wrap{
@@ -131,8 +136,35 @@ body {
 }
 
 .section-brands{
-  height:1130px; background-size:cover; background-position: center; background-repeat: no-repeat;
+  height:1140px; background-size:cover; background-position: center; background-repeat: no-repeat;
   background-image: url(/dongsuh_2025/draft_b/brand_back.png);
+  .brands-track-wrap{
+    display: flex; overflow: hidden; 
+    user-select: none; gap: var(--gap);
+    mask-image: linear-gradient( var(--mask-direction, to right), hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0) );
+    .brands-track{
+      flex-shrink: 0; display: flex; align-items: center; justify-content: space-around; 
+      gap: var(--gap); min-width: 100%;
+      animation: scroll-x var(--duration) linear infinite;
+      >img{ max-width: 320px !important; border-radius: 12px;}
+    }
+    &.reverse{
+      margin-top: 24px;
+      >.brands-track{
+        animation-direction: reverse;
+        animation-delay: -3s;
+      }
+    }
+  }  
+}
+
+@keyframes scroll-x {
+  from {
+    transform: translateX(var(--scroll-start));
+  }
+  to {
+    transform: translateX(var(--scroll-end));
+  }
 }
 
 .section-csr{

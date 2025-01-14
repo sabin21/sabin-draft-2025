@@ -1,41 +1,52 @@
 "use client"
-import React, { useEffect, useRef } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { useRef, useEffect } from 'react';
+import type { Swiper as SwiperType } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
+// import 'swiper/css/navigation';
+import 'swiper/css/autoplay';
 import "../../styles/draft_b.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function DraftBHome() {
-  
-  const heroMenu = ['찬바람 불때 미떼', '나에게 더 부드럽게', '나를 찾는 순간'];
 
-  const containerRef = useRef<HTMLDivElement>(null);
+  const heroMenu = ['찬바람 불때 미떼', '나에게 더 부드럽게', '나를 찾는 순간']
+  const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
-    if (containerRef.current) {
-      const cards = containerRef.current.querySelectorAll('.product-card .product-img');
+    const swiper = swiperRef.current;
+    if (!swiper) return;
 
-      gsap.from(cards, {
-        x: 300,
-        // opacity: 0,
-        duration: 0.2,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top center',
-          end: 'bottom bottom',
-          scrub: 1,
-        },
+    const handleSlideChange = () => {
+      const activeSlide = swiper.slides[swiper.activeIndex];
+      const video = activeSlide.querySelector('video') as HTMLVideoElement | null;
+      if (video) {
+        video.currentTime = 0;
+        video.play().catch(error => console.error('Video playback error:', error));
+      }
+    };
+
+    const handleVideoEnded = () => {
+      swiper.slideNext();
+    };
+
+    swiper.on('slideChange', handleSlideChange);
+
+    const videos = document.querySelectorAll<HTMLVideoElement>('.hero-video');
+    videos.forEach(video => {
+      video.addEventListener('ended', handleVideoEnded);
+    });
+
+    return () => {
+      swiper.off('slideChange', handleSlideChange);
+      videos.forEach(video => {
+        video.removeEventListener('ended', handleVideoEnded);
       });
-    }
+    };
   }, []);
 
   return (
@@ -63,21 +74,26 @@ export default function DraftBHome() {
         <section className="section-hero">
           
             <Swiper
-              modules={[Pagination]}
+              onSwiper={(swiper) => { swiperRef.current = swiper; }}
+              modules={[Pagination, Autoplay]}
               spaceBetween={0}
               slidesPerView={1}
               loop={true}
               grabCursor={true}
+              autoplay={{
+                delay: 11000,
+                disableOnInteraction: false,
+              }}
               pagination={{
                 el: '.hero-pagination',
                 clickable: true,
-                renderBullet: function (index, className) {
+                renderBullet: function (index: number, className: string) {
                   return '<span class="' + "pagination-item " + className + '">' + (heroMenu[index]) + '</span>';
                 },
               }}
               className="hero-swiper-container" >
               <SwiperSlide className="hero-slide">
-                <video muted autoPlay loop playsInline preload="none" src="/dongsuh_2025/hero_mite.mp4" className="hero-video">
+                <video muted playsInline preload="none" src="/dongsuh_2025/hero_mite.mp4" className="hero-video">
                 </video>
                 <div className="hero-title-wrap">
                   <img src="/dongsuh_2025/draft_b/hero_logo_mite.png" className="hero-logo" />
@@ -85,7 +101,7 @@ export default function DraftBHome() {
                 </div>
               </SwiperSlide>
               <SwiperSlide className="hero-slide">
-                <video muted autoPlay loop playsInline preload="none" src="/dongsuh_2025/hero_maxim_white.mp4" className="hero-video">
+                <video muted playsInline preload="none" src="/dongsuh_2025/hero_maxim_white.mp4" className="hero-video">
                 </video>
                 <div className="hero-title-wrap">
                 <img src="/dongsuh_2025/draft_b/hero_logo_maxim.png" className="hero-logo" />
@@ -93,7 +109,7 @@ export default function DraftBHome() {
                 </div>
               </SwiperSlide>
               <SwiperSlide className="hero-slide">
-                <video muted autoPlay loop playsInline preload="none" src="/dongsuh_2025/hero_kanu.mp4" className="hero-video">
+                <video muted playsInline preload="none" src="/dongsuh_2025/hero_kanu.mp4" className="hero-video">
                 </video>
                 <div className="hero-title-wrap">
                 <img src="/dongsuh_2025/draft_b/hero_logo_kanu.png" className="hero-logo" />
@@ -105,7 +121,7 @@ export default function DraftBHome() {
 
         </section>
 
-        <section className="section section-product" ref={containerRef} >
+        <section className="section section-product">
           <div className="section-title-wrap">
             <img src="/dongsuh_2025/draft_b/section_title_product.png" className="section-title-img" />
           </div>
@@ -145,53 +161,7 @@ export default function DraftBHome() {
           <div className="section-title-wrap">
             <img src="/dongsuh_2025/draft_b/section_title_brand.png" className="section-title-img" />
           </div>
-          <div className="brands-track-wrap">
-            <div className="brands-track">
-              <img src="/dongsuh_2025/draft_b/logo_maxim_1.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_maxwell.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_kanu.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_top.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_maxim_2.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_kanu_2.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_zeti.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_starbuck.png" alt="" />
-            </div>
-            <div className="brands-track">
-              <img src="/dongsuh_2025/draft_b/logo_maxim_1.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_maxwell.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_kanu.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_top.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_maxim_2.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_kanu_2.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_zeti.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_starbuck.png" alt="" />
-            </div>
-          </div>
-
-          <div className="brands-track-wrap reverse">
-            <div className="brands-track">
-              <img src="/dongsuh_2025/draft_b/logo_tarra.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_frima.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_mite.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_phila.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_tea_1.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_tea_2.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_post.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_tio.png" alt="" />
-            </div>
-            <div className="brands-track">
-              <img src="/dongsuh_2025/draft_b/logo_tarra.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_frima.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_mite.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_phila.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_tea_1.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_tea_2.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_post.png" alt="" />
-              <img src="/dongsuh_2025/draft_b/logo_tio.png" alt="" />
-            </div>
-          </div>
-
-          {/* <img src="/dongsuh_2025/draft_b/brands_logo_img.png" alt="" /> */}
+          <img src="/dongsuh_2025/draft_b/brands_logo_img.png" alt="" />
         </section>
 
         <section className="section section-csr">

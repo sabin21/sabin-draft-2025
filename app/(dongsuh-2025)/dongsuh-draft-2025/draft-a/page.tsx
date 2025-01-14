@@ -1,6 +1,7 @@
 "use client"
 
-// import { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import { useMouse } from 'react-use';
 
 import Image from "next/image";
 
@@ -9,7 +10,7 @@ import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, FreeMode, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -23,18 +24,20 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 
 export default function DraftBHome() {
-  // const main = useRef<HTMLElement | any>();
-  // const heroSection = useRef<HTMLElement | any>(null);
-  // const heroVideo = useRef<HTMLElement | any>(null);
-  // let viewHeight = window.innerHeight;
+  
   const tlHeroVideo = gsap.timeline();
+
   useGSAP(() => {
+    
     ScrollTrigger.create({
       trigger: ".section-hero",
       endTrigger: ".section-2",
       animation:tlHeroVideo.to(".hero-video-wrap",{
         width: "100vw", height: "100vh", top:0, right:0, borderRadius:0, ease: "none"
       }).add(() =>{}, "+=0.4"),
+      // animation:tlHeroVideo.fromTo(".hero-video-wrap",{width: '196px', height: '137px', top: "calc(50% - 145px)", right:"calc(50% - 370px)" },{
+      //   width: "100vw", height: "100vh", top:0, right:0, borderRadius:0, ease: "none"
+      // }).add(() =>{}, "+=0.4"),
       scrub:0.5,
       start: "+=5",
       end: "bottom bottom",
@@ -85,49 +88,46 @@ export default function DraftBHome() {
           </div>
         </section>
 
-        <section className="section section-3">
+        <section className="section section-product">
           <span className="back-gradient"></span>
           <div className="back-shape">
             <span className="big-circle"></span>
-            <span className="point-circle"></span>
+            <span className="point-circle">
+              <span className="text">HOT</span>
+            </span>
           </div>
           <div className="section-title title-product">
             <img src="/dongsuh_2025/a_title_product.png" className="title-img" />
           </div>
         
             <Swiper
-              modules={[Navigation, Pagination, FreeMode]}
+              modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={72}
               slidesPerView={4}
               centeredSlides={true}
               loop={true}
               autoplay={{
-                delay: 2500,
+                delay: 3000,
                 disableOnInteraction: false,
               }}             
-              // grabCursor={true}
-              // freeMode={true}
-              // pagination={{
-              //   clickable: true,
-              // }}
                className="product-swiper-container"
             >
               <SwiperSlide className="product-slide">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_1.png" />
-                  <h4>카누 에스프레소 쇼콜라 라떼</h4>
+                  <h4>카누 마일드로스트 아메리카노</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_2.png" />
-                  <h4>카누 에스프레소 쇼콜라 라떼</h4>
+                  <h4>맥심 티오피 스모키 블랙</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_3.png" />
-                  <h4>카누 에스프레소 쇼콜라 라떼</h4>
+                  <h4>카누 싱글오리진 에티오피아</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
@@ -139,25 +139,25 @@ export default function DraftBHome() {
               <SwiperSlide className="product-slide">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_5.png" />
-                  <h4>카누 에스프레소 쇼콜라 라떼</h4>
+                  <h4>포스트 단백질바 미니</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_6.png" />
-                  <h4>카누 에스프레소 쇼콜라 라떼</h4>
+                  <h4>맥심 화이트골드 커피믹스</h4>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_7.png" />
-                  <h4>카누 에스프레소 쇼콜라 라떼</h4>
+                  <h4>맥심 슈프림골드 커피믹스</h4>
                 </div>
               </SwiperSlide> 
             </Swiper>
         </section>
 
-        <section className="section section-csr">
+        <section className="section section-csr border">
           <div className="section-title title-csr">
             <img src="/dongsuh_2025/a_title_csr.png" className="title-img" />
           </div>
