@@ -1,43 +1,21 @@
 "use client"
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { gsap } from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
-import "../../styles/draft_b.css";
+import "../../styles/draft_b_mo.css";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 export default function DraftBHome() {
   
   const heroMenu = ['찬바람 불때 미떼', '나에게 더 부드럽게', '나를 찾는 순간'];
-
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      const cards = containerRef.current.querySelectorAll('.product-card .product-img');
-
-      gsap.fromTo(cards, {
-        x:300
-      },{
-        x: 0,
-        duration: 0.2,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top center',
-          end: 'bottom bottom',
-          scrub: 0.5,
-        },
-      });
-    }
-  }, []);
 
   return (
     <div>
@@ -48,13 +26,6 @@ export default function DraftBHome() {
             <div className="logo">
               <img src="/dongsuh_2025/logo_white.png" />
             </div>
-            <ul className="nav-menu">
-              <li className="menu-item">회사소개</li>
-              <li className="menu-item">제품안내</li>
-              <li className="menu-item">홍보센터</li>
-              <li className="menu-item">사회공헌</li>
-              <li className="menu-item">고객센터</li>
-            </ul>
             <div className="right-util">
               <img src="/dongsuh_2025/b_header_right.png" />
             </div>
@@ -106,11 +77,11 @@ export default function DraftBHome() {
 
         </section>
 
-        <section className="section section-product" ref={containerRef} >
+        <section className="section section-product" >
           <div className="section-title-wrap">
             <img src="/dongsuh_2025/draft_b/section_title_product.png" className="section-title-img" />
           </div>
-          <a href="/dongsuh-draft-2025/draft-b-depth">
+          <a href="/dongsuh-draft-2025/draft-b-depth-mo">
             <div className="product-card-wrap">
               <div className="product-card color-1">
                 <img src="/dongsuh_2025/draft_b/product_1.png" className="product-img" />
@@ -201,19 +172,13 @@ export default function DraftBHome() {
           <div className="section-title-wrap">
             <img src="/dongsuh_2025/draft_b/section_title_csr.png" className="section-title-img" />
           </div>
-          <img src="/dongsuh_2025/draft_b/csr_img.png" alt="" />
+          <img src="/dongsuh_2025/a_content_mo.png" alt="" />
         </section>
         
-        <section className="section section-news">
-          <img src="/dongsuh_2025/draft_b/news_full.png" className="full-img" />
-        </section>
         
 
       </main>
 
-      <footer className="footer">
-        <img src="/dongsuh_2025/draft_b/footer.png" className="full-img" />
-      </footer>
     </div>
       
       

@@ -2,7 +2,7 @@
   --color-text: navy;
   --color-bg: papayawhip;
   --color-bg-accent: #ecdcc0;
-  --size: 320px;
+  --size: 260px;
   --gap: calc(var(--size) / 14);
   --duration: 60s;
   --scroll-start: 0;
@@ -10,16 +10,18 @@
 }
 
 body {
-  scrollbar-width: 1px;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 .main{
   position: relative; width:100%;
 }
 .footer{
-  width: 100%; height:440px; position: relative; display: flex; justify-content: center;
-  background-image:url(/dongsuh_2025/draft_b/footer_back.png);
+  width: 100%; position: relative; display: flex; justify-content: center; 
   >.full-img{
-    width:1402px; height: 202px; margin-top: 80px;
+    width:1402px;
   }
 }
 .app-header{
@@ -29,7 +31,7 @@ body {
     position: relative; width: 100%; max-width: 1600px; height: 100px;
     display: flex; align-items: center;
     >.logo{
-      display: block; width:176px; position: absolute; left:24px;
+      display: block; width:132px; position: absolute; left:24px;
       >img{ max-width: 100%;}
     }
     >.btns-wrap{
@@ -43,36 +45,27 @@ body {
       }
     }
     >.right-util{
-      position: absolute; right:24px;
-      >img{ max-width: 104px;}
-    }
-  }
-  &.depth{
-    >.inner{      
-      >.nav-menu{
-        >.menu-item{
-          color:#272727;
-        }
-      }
+      position: absolute; right:16px;
+      >img{ max-width: 80px;}
     }
   }
 }
 
 .section{
-  position:relative; width:100%; height: 100%; min-height: 740px;
+  position:relative; width:100%; height: auto; min-height: 400px;
   .section-title-wrap{
     width:100%; position: relative; display:flex; justify-content: center; align-items: center;
-    padding: 160px 0;
+    padding: 80px 0;
     >.section-title-img{
-      width: 680px;
+      width: 380px;
     }
   }
 }
 
 .section-hero{
-  position: relative; width:100%; height: 100vh; min-height: 720px; overflow: hidden;
+  position: relative; width:100%; height: 80vh; min-height: 500px; overflow: hidden;
   .hero-video{
-    position: relative; width:100%; height: 100vh; min-height: 720px; overflow: hidden;
+    position: relative; width:100%; height: 100vh; min-height: 500px; overflow: hidden;
     >video{
       position: absolute; width:100%; height:100%; object-fit: cover;
     }
@@ -84,9 +77,9 @@ body {
 }
 
 .hero-swiper-container{
-  position: relative; width:100%; height: 100vh; min-height: 720px; overflow: hidden;
+  position: relative; width:100%; height: 80vh; overflow: hidden;
   .hero-slide{
-    position: relative; width:100%; height: 100vh; min-height: 720px; overflow: hidden;
+    position: relative; width:100%; height: 80vh; overflow: hidden;
     >.hero-video{
       position: relative; width:100%; height:100%; object-fit: cover;
       top:0; left:0;
@@ -96,14 +89,14 @@ body {
       top:0; left:0; background-color: black; opacity: 0.4;
     }
     >.hero-title-wrap{
-      width: 100%; max-width: 1010px; position: absolute; bottom:80px; left: 80px;
+      width: 100%; max-width: 1010px; position: absolute; bottom:120px; left: 24px;
       color: white; z-index: 10; display: flex; flex-direction: column;
       >h2{
-        color:white; font-size: 72px; font-weight: 500; line-height: 1.2em; letter-spacing: -0.02em;
+        color:white; font-size: 36px; font-weight: 500; line-height: 1.2em; letter-spacing: -0.02em;
         opacity: 0.8;
       }
       >.hero-logo{
-        width:320px;
+        width:180px;
       }
     }
   }
@@ -111,14 +104,12 @@ body {
 }
 
 .hero-pagination{
-  width: 500px; position: absolute; bottom: 40px; right: 40px;
-  display: flex; z-index: 10; gap:16px; cursor: pointer;
+  width: 344px; position: absolute; bottom: 40px; right: 24px;
+  display: flex; z-index: 10; gap:8px; cursor: pointer;
   >.pagination-item{ 
-    display: inline-block; width: 140px; color:white; padding: 12px 0;
+    display: inline-block; width: 110px; color:white; padding: 12px 0;
     border-top: 1px solid white; opacity: 0.5;
-    >.title{
-      display:block; line-height: 1.2em;
-    }
+    font-size: 14px;
     &.swiper-pagination-bullet-active{
       opacity: 1;
     }
@@ -127,10 +118,11 @@ body {
 
 .section-product{
   .product-card-wrap{
-    width:100%; height:50vw; display: flex; flex-wrap: wrap;
+    width:100%; display: flex; flex-wrap: wrap; 
     >.product-card{
-      position:relative; width: 25%; flex-shrink:0; padding: 32px; overflow: hidden;
+      position:relative; width: 50%; flex-shrink:0; padding: 32px; overflow: hidden;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
+      height: 50vw;
       >.product-img{
         position: absolute; width: 70%; aspect-ratio: 1/1; 
       }
@@ -139,14 +131,14 @@ body {
       &.color-3{ background-color: #E2E1E0; }
       &.color-4{ background-color: #CEC8C1; }
       >.badge-new{
-        width:50px; height:50px; position: absolute; top:16px; left: 16px;
+        width:32px; height:32px; position: absolute; top:12px; left: 12px;
       }
     }
   }
 }
 
 .section-brands{
-  height:1140px; background-size:cover; background-position: center; background-repeat: no-repeat;
+  height:680px; background-size:cover; background-position: center; background-repeat: no-repeat;
   background-image: url(/dongsuh_2025/draft_b/brand_back.png);
   .brands-track-wrap{
     display: flex; overflow: hidden; 
@@ -156,7 +148,7 @@ body {
       flex-shrink: 0; display: flex; align-items: center; justify-content: space-around; 
       gap: var(--gap); min-width: 100%;
       animation: scroll-x var(--duration) linear infinite;
-      >img{ max-width: 320px !important; border-radius: 12px;}
+      >img{ max-width: 180px !important; border-radius: 8px;}
     }
     &.reverse{
       margin-top: 24px;
@@ -189,11 +181,3 @@ body {
   }
 }
 
-/*---------------*/
-.depth-wrap{
-  position: relative; width:1402px; margin: auto;
-  padding: 140px 0;
-}
-.depth-full-img {
-  position:relative; width: 1402px;
-}

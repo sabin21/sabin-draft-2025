@@ -4,6 +4,7 @@
 // import { useMouse } from 'react-use';
 
 import Image from "next/image";
+import Link from "next/link";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -113,46 +114,60 @@ export default function DraftBHome() {
                className="product-swiper-container"
             >
               <SwiperSlide className="product-slide">
+                <Link href="/dongsuh-draft-2025/draft-a-depth">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_1.png" />
                   <h4>카누 마일드로스트 아메리카노</h4>
                 </div>
+                </Link>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
+                <Link href="/dongsuh-draft-2025/draft-a-depth">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_2.png" />
                   <h4>맥심 티오피 스모키 블랙</h4>
                 </div>
+                </Link>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
+              <Link href="/dongsuh-draft-2025/draft-a-depth">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_3.png" />
                   <h4>카누 싱글오리진 에티오피아</h4>
                 </div>
+                </Link>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
+              <Link href="/dongsuh-draft-2025/draft-a-depth">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_4.png" />
                   <h4>카누 에스프레소 쇼콜라 라떼</h4>
                 </div>
+                </Link>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
+              <Link href="/dongsuh-draft-2025/draft-a-depth">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_5.png" />
                   <h4>포스트 단백질바 미니</h4>
                 </div>
+                </Link>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
+              <Link href="/dongsuh-draft-2025/draft-a-depth">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_6.png" />
                   <h4>맥심 화이트골드 커피믹스</h4>
                 </div>
+                </Link>
               </SwiperSlide>
               <SwiperSlide className="product-slide">
+              <Link href="/dongsuh-draft-2025/draft-a-depth">
                 <div className="product-slide-inner">
                   <img src="/dongsuh_2025/product_7.png" />
                   <h4>맥심 슈프림골드 커피믹스</h4>
                 </div>
+                </Link>
               </SwiperSlide> 
             </Swiper>
         </section>
@@ -160,6 +175,7 @@ export default function DraftBHome() {
         <section className="section section-csr border">
           <div className="section-title title-csr">
             <img src="/dongsuh_2025/a_title_csr.png" className="title-img" />
+            <img src="/dongsuh_2025/a_csr_btn.png" className="btn-img" />
           </div>
           <div className="csr-row">
             <div className="row-track">
@@ -182,6 +198,7 @@ export default function DraftBHome() {
         <section className="section section-news">
           <div className="section-title title-news">
             <img src="/dongsuh_2025/a_title_news.png" className="title-img" />
+            <img src="/dongsuh_2025/a_more_btn.png" className="btn-img" />
           </div>
           <div className="content-wrap">
             <img src="/dongsuh_2025/a_news.png" alt="" />

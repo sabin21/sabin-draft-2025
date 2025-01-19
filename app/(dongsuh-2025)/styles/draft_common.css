@@ -1,0 +1,13 @@
+
+.frame-page-wrap{
+  position: relative; width:100%; min-height: 1000px; height: 100%;
+  >.phone-wrap{
+    position: absolute; width: 440px; height: 881px; margin: auto; left:0; right:0; top: 80px;
+    background-size: contain; background-repeat: no-repeat; background-position: center;
+    background-image: url(/dongsuh_2025/index/iphone_frame_light_gray.png);
+    >.phone-frame{
+      position: absolute; width:390px; height: 845px; overflow: hidden; border-radius: 46px;
+      top: 18px; left:25px;
+    }
+  }
+}

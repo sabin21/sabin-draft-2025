@@ -41,6 +41,7 @@ export default function Home() {
               </li>
             </ul>
             <Link className='draft-link' href={"dongsuh-draft-2025/draft-a"} target="_blank">디자인시안 (Desktop 버전)</Link>
+            <Link className='draft-link' href={"dongsuh-draft-2025/draft-a-mo-frame"} target="_blank">디자인시안 (Mobile 버전)</Link>
           </div>
 
           <div className="content-block">
@@ -54,6 +55,7 @@ export default function Home() {
               </li>
             </ul>
             <Link className='draft-link' href={"dongsuh-draft-2025/draft-b"} target="_blank">디자인시안 (Desktop 버전)</Link>
+            <Link className='draft-link' href={"dongsuh-draft-2025/draft-b-mo-frame"} target="_blank">디자인시안 (Mobile 버전)</Link>
           </div>
 
         </div>
