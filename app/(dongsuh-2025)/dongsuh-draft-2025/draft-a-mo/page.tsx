@@ -67,7 +67,7 @@ export default function DraftBHome() {
 
         <div className="a-home-mo-full bg-white">
           <a href="/dongsuh-draft-2025/draft-a-depth-mo">
-            <Image src={'/dongsuh_2025/a_mo_full.png'} width={390} height={4543} alt=""></Image>
+            <Image src={'/dongsuh_2025/a_mo_full.png'} width={390} height={4635} alt="" className="full-img"></Image>
           </a>
         </div>
       </main>

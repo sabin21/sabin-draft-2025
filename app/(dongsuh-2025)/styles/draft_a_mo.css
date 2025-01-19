@@ -202,3 +202,9 @@ body{
     width: 1402px; height: 560px; flex-shrink:0; flex-grow:0; 
   }
 }
+
+.a-home-mo-full{
+  .full-img{
+    padding-top: 40px;
+  }
+}

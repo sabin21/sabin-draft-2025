@@ -208,11 +208,10 @@ export default function DraftBHome() {
           <img src="/dongsuh_2025/draft_b/news_full.png" className="full-img" />
         </section>
         
-
       </main>
 
       <footer className="footer">
-        <img src="/dongsuh_2025/draft_b/footer.png" className="full-img" />
+        <img src="/dongsuh_2025/draft_b/footer_content.png" className="full-img" />
       </footer>
     </div>
       
