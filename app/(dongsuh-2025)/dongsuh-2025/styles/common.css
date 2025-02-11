@@ -1,0 +1,17 @@
+
+/*-------------*/
+:root {
+  --colors-gray-50: #F7F7F7;
+  --colors-gray-100: #ECECED;
+  --colors-gray-200: #DDDEE0;
+  --colors-gray-300: #CCCED1;
+  --colors-gray-400: #A9ACB1;
+  --colors-gray-500: #93969E;
+  --colors-gray-600: #83858D;
+  --colors-gray-700: #757780;
+  --colors-gray-800: #63636A;
+  --colors-gray-900: #515357;
+  --colors-gray-950: #343537;
+
+  --colors-primary-500: #DF3448;
+}

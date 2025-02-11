@@ -1,0 +1,41 @@
+
+/*-------------*/
+
+.app-header-wrap{
+  position: absolute; width:100%; top:0; left:0; right:0; z-index: 1000; 
+  >.app-header{
+    width:100%; display:flex; align-items: center; justify-content:center; height: 64px; padding: 0 20px;
+    transition: all 0.2s; 
+    &.bg-white{
+      background-color: white; 
+    }
+    >.btn-logo{
+      position:absolute; width: 114px; height:25px; background-size:contain; background-repeat: no-repeat; 
+      left: 20px;
+      background-image: url('/dongsuh/img/logo_default.png');
+    }
+    >.nav-wrap{
+      position:relative; display:flex; align-items: center; gap: 72px;
+      color: var(--colors-gray-900); font-size: 20px; font-weight: 500;
+    }
+  }
+  >.submenu-wrap{
+    width:100%; display:flex; justify-content: center; 
+    height: 0px; 
+    overflow: hidden; transition: all 0.2s; 
+    &.active{
+      background-color: white; height: 400px;
+    }
+    >.submenu{
+      display:flex; justify-content: center; gap:32px;
+      >.submenu-item{
+        display:block; width:142px; 
+        >ul{
+          >li{
+            color: var(--colors-gray-900); font-size: 16px; font-weight: 500; padding: 0.25em 0;
+          }
+        }
+      }
+    } 
+  }
+}
