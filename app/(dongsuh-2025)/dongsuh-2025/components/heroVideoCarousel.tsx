@@ -77,7 +77,7 @@ const HeroVideoCarousel = () => {
       {/* 이전 버튼 */}
       <button
         onClick={handlePrev}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded focus:outline-none hover:bg-opacity-75"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-xs focus:outline-hidden hover:bg-opacity-75"
       >
         이전
       </button>
@@ -85,7 +85,7 @@ const HeroVideoCarousel = () => {
       {/* 다음 버튼 */}
       <button
         onClick={handleNext}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded focus:outline-none hover:bg-opacity-75"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-xs focus:outline-hidden hover:bg-opacity-75"
       >
         다음
       </button>
