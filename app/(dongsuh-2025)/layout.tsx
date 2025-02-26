@@ -34,7 +34,7 @@ export default function RootLayout({
         style={{ borderTopStyle: 'solid' }} // gsap관련 hydration error 해결을 위해 추가
       >
         <LenisGsap>
-        {children}  
+          {children}
         </LenisGsap>
         
     </body>

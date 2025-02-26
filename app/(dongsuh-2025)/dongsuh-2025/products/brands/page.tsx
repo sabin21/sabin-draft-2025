@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function BrandsList(){
  
   return(
-    <>
+    <div className='page-inner-wrap'>
     
       <div className='page-title-wrap'>
         <h2 className='page-title'>브랜드</h2>
@@ -261,6 +261,6 @@ export default function BrandsList(){
 
         </div>
       </div>
-      </>
+      </div>
   )
 }

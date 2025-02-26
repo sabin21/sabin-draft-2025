@@ -1,5 +1,4 @@
 
-/*-------------*/
 
 html { font-size: 62.5%;}
 
@@ -55,7 +54,7 @@ html { font-size: 62.5%;}
   --text-title-md: 1.8rem;
   --text-title-lg: 2rem;
   --text-title-xl: 2.2rem;
-  --text-title-xxl: 2.4rem;
+  --text-title-xxl: 2.8rem;
 
   --text-display-xl: 3.2rem;
 
@@ -112,74 +111,44 @@ html { font-size: 62.5%;}
 @import './product.css';
 @import './brands.css';
 
-/*-------------*/
+/*-----------------------------*/
 
 body{ color: var(--colors-gray-950); letter-spacing: -0.02em; font-weight:500; }
 
 .container{
-  width:100%; position:relative; margin:0 auto; max-width:var(--container-max-width);
+  width:100%; position:relative; margin:0 auto; 
+  max-width:var(--container-max-width);
   padding: 0 1.6rem;
 }
 
+.page-inner-wrap{
+  position:relative; width:100%; 
+  padding-bottom: max(12rem, 15vh);
+}
+
 .page-title-wrap{
-  width:100%; padding: 2rem 0; display:flex; justify-content:center; margin: 10vw 0 3vw 0;
+  width:100%; display:flex; justify-content:center; 
+  margin: 12rem 0 6rem 0;
   >.page-title{
     position:relative; text-align:center; font-size:var(--text-title-xxl); 
     display:inline-block; line-height: 1.2em;
     &::after{
-      content:''; display:block; width:12px; height:12px; background-color:var(--colors-primary-500);
-      position:absolute; border-radius:50%; right: -8px; top: -6px;
+      content:''; display:block; width:8px; height:8px; background-color:var(--colors-primary-500);
+      position:absolute; border-radius:50%; right: -10px; top: -6px;
     }
   } 
 }
 
-.list-wrap-brands{
-  display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem ;
-    >.brand-card{
-      width: 100%; height:100%; aspect-ratio: 1/1.43; border-radius: var(--border-radius-lg);
-      border: 1px solid var(--colors-gray-200); overflow:hidden;
-      display:flex; flex-direction:column; background-color:white;
-      transition: filter 0.2s;
-      >a{
-        display:block; width:100%; height:100%; display:flex; flex-direction:column;
-        >.upper{
-          width:100%; height: 100%; display:flex; flex-direction:column; justify-content:center; align-items:center;
-          padding-bottom: 4%;
-          >img{
-            max-width: 60%; object-fit: contain; 
-          }
-          >.copy{
-            font-size: max(1.4rem, 0.625vw); color: var(--colors-gray-700); font-weight: 600;
-            line-height:1.3em; letter-spacing: -0.03em; text-align:center;  
-          }
-        }
-        >.thumb{
-          width:100%; height: 100%; background-color: var(--colors-gray-50); border-top: 1px solid var(--colors-gray-200);
-          display:flex; justify-content:center; align-items:center;
-          >img{
-            width:70%;
-          }
-        } 
-      }
-    &:hover{
-      filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
-      border: 1px solid var(--colors-gray-300);
-    }  
-    }  
-}
-
 @media (min-width: 1025px) {
-  .list-wrap-brands{
-    grid-template-columns: repeat(3, 1fr); gap: 2.4rem ;
-    >.brand-card{
-      >a{
-        >.upper{
-          >.copy{
-            font-size: var(--text-body-xxl);
-          }
-        }
+  .page-title-wrap{
+    margin: 24rem 0 10rem 0;
+    >.page-title{
+      &::after{
+        width:16px; height:16px; right: -22px; top: -12px;
       }
     }
-  }   
+  }
 }
+
+/*-----------------------------*/
 
