@@ -29,7 +29,7 @@
     >.right-btns{
       display:flex; gap: 8px; position:absolute; right: 16px; align-items: center;
       >.header-util-btn{
-        position:relative; border: 1px solid var(--colors-gray-200); border-radius: 50%;
+        position:relative; border: 1px solid rgba(0,0,0,0.2); border-radius: 50%;
         width:3.4rem; height:3.4rem; display:flex; justify-content:center; align-items:center;
       }
       >.btn-burger{

@@ -89,11 +89,11 @@
   margin-bottom: 3.2rem; flex-direction: column; 
   >.product-nav-item{
     width:100%; display: flex; font-size: var(--text-body-sm); font-weight: 700;
-    border-radius: 6rem; border: 1px solid var(--color-gray-300); 
+    border-radius: 6rem; border: 1px solid var(--colors-gray-300); 
     padding: 1.2rem 1.2rem 1.2rem 2.2rem; justify-content: space-between; align-items: center;
     >.product-nav-arrow{
       width: 2.4rem; height: 2.4rem; border-radius: 50%; display:flex; justify-content:center; align-items:center;
-      background-color: var(--color-primary-500);
+      background-color: var(--colors-primary-500);
       >.product-nav-arrow-svg{
         transform: scale(0.6);
       }
@@ -116,7 +116,9 @@
     }
   }
 }
+
 /*-----------------*/
+
 .product-list-wrap{
   width:100%; display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem;
   >.product-list-card{
