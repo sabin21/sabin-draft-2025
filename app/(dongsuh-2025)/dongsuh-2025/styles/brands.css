@@ -71,7 +71,7 @@
 /* Brand Intro page --------------*/
 
 .brand-intro-head{
-  width:100%; display:flex; flex-direction:column; align-items:center; padding: 15rem 0 0 0;
+  width:100%; display:flex; flex-direction:column; align-items:center; padding: 15rem 0 5.6rem 0;
   >.brand-logo{
     width:100%; max-width: 60vw;
   }
@@ -86,7 +86,7 @@
 }
 .brand-hero{
   width:100%; height: 100vh; display:flex; justify-content:center; align-items:center;
-  margin-top:-7vh;
+  margin-top:-8rem;
 }
 .brand-hero-visual{
   width:80%; height: 100vw; overflow:hidden; position:relative; margin: 0 auto;
@@ -103,6 +103,7 @@
 .brand-section-copy{
   position:relative; width:100%; height: 100vh; min-height: 1000px;
   display:flex; justify-content:center; align-items:center;
+  
   >.brand-copy{
     width: 80%; text-align:center; color:white; font-size: var(--text-body-lg); font-weight: 500;
     line-height:1.75em; opacity:0.0;
@@ -112,15 +113,19 @@
 
 @media (min-width: 1025px) {
   .brand-intro-head{
-    padding: 12vw 0 0 0;
+    padding: 10vw 0 3.2rem 0;
     >.brand-logo{
       max-width: 19.792vw;
     }
+  }
+  .brand-hero{
+    margin-top:0;
   }
   .brand-hero-visual{
     width:22%; height: 26vw; min-height: 640px; 
   }
   .brand-section-copy{
+    min-height: 1200px;
     >.brand-copy{
       width: 32%; text-align: left; font-size: var(--text-body-xxl); 
     }
