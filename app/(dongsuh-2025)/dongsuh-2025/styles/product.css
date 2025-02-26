@@ -1,0 +1,153 @@
+
+/* Products List -----------------*/
+
+.new-product-carousel{
+  position: relative; width:100%; height: 420px; margin-top: 12rem;
+  max-width: 2400px;
+  /* background:yellow; */
+  >.back-shape{
+    width:260px; height:260px; position: absolute; margin: auto;
+    top: 0px; left:0; right:0; blend-mode: multiply;
+    >.big-circle{
+      position:absolute; display:block; width:100%; height:100%; 
+      border-radius: 50%; background-color: #F8F1E9;
+      blend-mode: multiply;
+    }
+    >.point-circle{
+      position:absolute; display:flex; width: 20px; height: 20px;
+      width:20vw; height:20vw; right:0; top:0;
+      border-radius: 50%; background-color:rgb(253, 32, 32); opacity: 0.75;
+      justify-content: center; align-items: center;
+      blend-mode: multiply;
+      >.text{
+        color:white; display:block; text-align: center; font-size: 1.4rem;
+        font-family: 'Poppins', sans-serif; font-weight: 600; letter-spacing: 0.02em;
+      }
+    }
+  }
+}
+
+.product-swiper-container{
+  position: absolute !important; width:100%; height: 360px; 
+  bottom: 0px;
+  >.swiper-wrapper{
+    >.product-slide{
+      position:relative; width:360px; height: 360px; transition: transform 0.2s; 
+      transform: scale(0.95); 
+      .product-slide-inner{
+        width:100%; height:100%; display:flex; flex-direction: column; justify-content: center; align-items: center;
+        >img{ max-width: 100%;}
+        >h4 { 
+          width:100%; font-size: var(--text-body-sm); font-weight:600; text-align: center; color: #494846;
+          letter-spacing: -0.03em; 
+          opacity:0.3; margin-top: 8px;
+        }
+      }
+      &.swiper-slide-active{
+        transform: scale(1.2);
+        .product-slide-inner{
+          >h4{ opacity: 1; }
+        }  
+      }
+    }
+  }  
+}
+
+@media (min-width: 1025px) {
+  .new-product-carousel{
+    margin-top: 28rem; margin-bottom: 8rem;
+    height: max(640px, 30vw);
+    >.back-shape{
+      width:480px; height:480px;
+      >.point-circle{
+        width:126px; height:126px; 
+        >.text{
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+  .product-swiper-container{
+    height: 580px; 
+    >.swiper-wrapper{
+      >.product-slide{
+        height: 580px; 
+        .product-slide-inner{
+          >h4 { 
+            font-size: var(--text-body-lg); margin-top: -12px;
+          }
+        }
+      }
+    }
+  }
+}
+  
+/*-----------------*/
+
+.product-nav-bar{
+  width:100%; position: relative; display:flex; justify-content: center; align-items: center; gap: 0.8rem;
+  margin-bottom: 3.2rem; flex-direction: column; 
+  >.product-nav-item{
+    width:100%; display: flex; font-size: var(--text-body-sm); font-weight: 700;
+    border-radius: 6rem; border: 1px solid var(--color-gray-300); 
+    padding: 1.2rem 1.2rem 1.2rem 2.2rem; justify-content: space-between; align-items: center;
+    >.product-nav-arrow{
+      width: 2.4rem; height: 2.4rem; border-radius: 50%; display:flex; justify-content:center; align-items:center;
+      background-color: var(--color-primary-500);
+      >.product-nav-arrow-svg{
+        transform: scale(0.6);
+      }
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .product-nav-bar{
+    gap: 1.2rem; flex-direction: row; margin-bottom: 4.8rem;
+    >.product-nav-item{
+      font-size: var(--text-body-lg); height:8.4rem;
+      padding: 2.2rem 2.4rem 2.2rem 3.2rem; 
+      >.product-nav-arrow{
+        width: 4rem; height: 4rem; 
+        >.product-nav-arrow-svg{
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+/*-----------------*/
+.product-list-wrap{
+  width:100%; display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem;
+  >.product-list-card{
+    margin-bottom: 3.2rem;
+    >a{
+      >.thumb{
+        background-color: #F5F2EF; display:flex; justify-content:center; align-items:center;
+        aspect-ratio: 1/1; overflow:hidden; border-radius: var(--border-radius-md);
+        >img{ width:86%; height:86%; object-fit: cover;}
+      }
+      >.card-body{
+        >.title{
+          font-size: var(--text-body-md); 
+        }
+      }
+    }
+  }  
+}
+
+@media (min-width: 1025px) {
+  .product-list-wrap{
+    grid-template-columns: repeat(3, 1fr); gap: 2.4rem;
+    >.product-list-card{
+      margin-bottom:4.8rem;
+      >a{
+        >.card-body{
+          >.title{
+            font-size: var(--text-body-xxl); 
+          }
+        }
+      }  
+    }
+  }
+}

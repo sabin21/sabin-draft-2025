@@ -1,94 +1,129 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 
 const HeroVideoCarousel = () => {
-  const videos = [
-    "/dongsuh/videos/hero_mite.mp4", 
-    "/dongsuh/videos/hero_maxim_white.mp4",
-    "/dongsuh/videos/hero_kanu.mp4", 
+
+  const slides = [
+    {
+      video: "/dongsuh/videos/hero_mite.mp4",
+      headline: "Slide 1 Headline",
+      image: "",
+      paginationText: "Slide 1"
+    },
+    {
+      video: "/dongsuh/videos/hero_maxim_white.mp4",
+      headline: "Slide 2 Headline",
+      image: "",
+      paginationText: "Slide 2"
+    },
+    {
+      video: "/dongsuh/videos/hero_kanu.mp4",
+      headline: "Slide 3 Headline",
+      image: "",
+      paginationText: "Slide 3"
+    },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const swiperRef = useRef<any>(null);
   const [progress, setProgress] = useState(0);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  // 비디오가 끝났을 때 다음 비디오로 이동
-  const handleVideoEnd = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
-    setProgress(0);
-  };
+  const handleSlideChange = (swiper: any) => {
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        // video.pause();
+        video.currentTime = 0;
+      }
+    });
 
-  // 이전 비디오로 이동
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => prevIndex === 0 ? videos.length - 1 : prevIndex - 1 );
-    setProgress(0);
-  };
-
-  // 다음 비디오로 이동
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
-    setProgress(0);
-  };
-
-  // 현재 인덱스가 바뀔 때마다 비디오 재생
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play();
-    }
-  }, [currentIndex]);
-
-  // 비디오 재생 시간 업데이트 시 진행률 계산
-  const handleTimeUpdate = () => {
-    if (videoRef.current) {
-      const currentTime = videoRef.current.currentTime;
-      const duration = videoRef.current.duration;
-      if (duration > 0) {
-        setProgress((currentTime / duration) * 100); // 진행률 계산 (0~100)
+    const currentVideo = videoRefs.current[swiper.realIndex];
+    if (currentVideo) {
+      setProgress(0);
+      const playPromise = currentVideo.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("비디오 재생 시작");
+          })
+          .catch((error) => {
+            console.error("비디오 재생 실패:", error);
+          });
       }
     }
   };
 
+  const handleVideoEnded = () => {
+    if (swiperRef.current && swiperRef.current.slideNext) {
+      swiperRef.current.slideNext();
+    }
+  };
+
+  const handleTimeUpdate = (index: number) => {
+    const currentVideo = videoRefs.current[index];
+    if (currentVideo && currentVideo.duration > 0) {
+      const currentProgress = (currentVideo.currentTime / currentVideo.duration) * 100;
+      setProgress(currentProgress); 
+    }
+  };
+
+  useEffect(() => {
+    // 초기 로드 시 첫 번째 비디오 재생
+    if (videoRefs.current.length > 0 && videoRefs.current[0]) {
+      const playPromise = videoRefs.current[0].play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("초기 비디오 재생 시작");
+          })
+          .catch((error) => {
+            console.error("초기 비디오 재생 실패:", error);
+          });
+      }
+    }
+  }, []);
+
   return (
     <div className="relative overflow-hidden w-screen mx-auto h-screen">
-      {/* 슬라이드 Wrapper */}
-      <div
-        className="flex transition-transform duration-500 ease-in-out w-full h-full bg-red-500"
-        style={{
-          transform: `translateX(-${currentIndex * 100}%)`, // 슬라이드 이동
-        }}
+      <Swiper
+        modules={[Navigation]}
+        navigation
+        loop={true}
+        onSlideChange={handleSlideChange}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        className="w-full h-full"
       >
-        {videos.map((video, index) => (
-          <div key={index} className="flex-none w-full h-full">
-            <div className="absolute top-0 left-0 h-1 bg-red-500" style={{ width: `${index === currentIndex ? progress : 0}%` }}></div>
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index} className="w-full h-full relative">
+            {index === swiperRef.current?.realIndex && (
+              <div
+                className="absolute bottom-0 left-0 h-1 bg-red-500 transition-all ease-linear"
+                style={{ width: `${progress}%` }}
+              ></div>
+            )}
             <video
-              ref={index === currentIndex ? videoRef : null} // 현재 슬라이드만 참조
-              onEnded={handleVideoEnd}
-              onTimeUpdate={handleTimeUpdate}
-              className="obsolute w-full h-full object-cover"
-              muted 
+              ref={(el) => {
+                videoRefs.current[index] = el as HTMLVideoElement | null;
+              }}
+              className="w-full h-full object-cover"
+              muted
+              onEnded={handleVideoEnded}
+              preload="none"
+              onTimeUpdate={() => handleTimeUpdate(index)}
             >
-              <source src={video} type="video/mp4" />
+              <source src={slide.video} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          </div>
+            <div className="absolute bottom-20 left-20 z-10 text-white text-4xl font-bold">
+              {slide.headline}
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
 
-      {/* 이전 버튼 */}
-      <button
-        onClick={handlePrev}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-xs focus:outline-hidden hover:bg-opacity-75"
-      >
-        이전
-      </button>
-
-      {/* 다음 버튼 */}
-      <button
-        onClick={handleNext}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-xs focus:outline-hidden hover:bg-opacity-75"
-      >
-        다음
-      </button>
+      
     </div>
   );
 };

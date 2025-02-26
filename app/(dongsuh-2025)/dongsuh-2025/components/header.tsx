@@ -4,11 +4,7 @@ import '../styles/header.css';
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useDeviceType } from '../hooks/useMediaQuery';
 
-interface HeaderProps {
-  isGhost: boolean;
-}
 interface MenuItem {
   menuText: string;
   link?: string;
@@ -68,62 +64,55 @@ const menuItems: MenuItem[] = [
   }
 ];
 
-const AppHeader = ({ isGhost }: HeaderProps) => {
+const AppHeader = () => {
 
-  const [hoveredMenuIndex, setHoveredMenuIndex] = useState<number | null>(null);
-  const [isNavHovered, setIsNavHovered] = useState(false);
   const pathname = usePathname();
-
-  const { isDesktop, isMobile } = useDeviceType();
-
-  const handleMouseEnter = (index: number) => {
-    setHoveredMenuIndex(index);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredMenuIndex(null);
-    setIsNavHovered(false);
-  };
-
-  const handleMouseEnterNav = () => {
-    setIsNavHovered(true); 
-  };
 
   return (
     <div className="app-header-wrap">
-      <header className={`app-header ${isGhost ? 'bg-transparent ghost' : ''} ${isNavHovered ? 'bg-white' : ''}`}>
-        <Link href="/" className="btn-logo"></Link>
-        {isDesktop && (
-          <ul className="nav-wrap" onMouseEnter={handleMouseEnterNav} >
-            {menuItems.map((item, index) => (
-              <li
-                key={index}
-                className=""
-                onMouseEnter={() => handleMouseEnter(index)} 
-              >
-                {item.link ? (
-                  <Link href={item.link}>
-                    {item.menuText}
-                  </Link>
-                ) : (
-                  <span className="">{item.menuText}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
 
+      <header className={`app-header ${pathname === '/dongsuh-2025' ? 'ghost': ''}`}>
+        <Link href="/" className="btn-logo"></Link>
+        
+        <ul className="nav-wrap">
+          {menuItems.map((item, index) => (
+            <li
+              key={index}
+              className=""
+            >
+              {item.link ? (
+                <Link href={item.link}>
+                  {item.menuText}
+                </Link>
+              ) : (
+                <span className="">{item.menuText}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+        <div className='right-btns'>
+          <button className="header-util-btn btn-search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 18 18" >
+            <path
+              stroke="#343537" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+              d="M12.848 12.848A6.787 6.787 0 1 0 3.249 3.25a6.787 6.787 0 0 0 9.599 9.598m0 0 3.89 3.89"
+            ></path>
+          </svg>
+          </button>
+          <button className="header-util-btn btn-burger">
+            <span className="burger-wrap">
+              <span className="burger-line"></span>
+              <span className="burger-line"></span>
+              <span className="burger-line"></span>
+            </span>
+          </button>
+        </div>
       </header>
 
-      <div
-        className={`submenu-wrap ${hoveredMenuIndex !== null ? 'active' : ''}`}
-        onMouseEnter={() => setHoveredMenuIndex(hoveredMenuIndex)} 
-        onMouseLeave={handleMouseLeave}
-      >
-         {isDesktop && (
+      <div className="submenu-wrap" >
         <ul className="submenu">
           {menuItems.map((item, index) => (
-            <li key={index} className={`submenu-item ${hoveredMenuIndex === index ? 'highlight' : ''}`}>
+            <li key={index} className="submenu-item">
               <ul>
                 {item.submenu?.map((subitem, subindex) => (
                   <li key={`${index}-${subindex}`} 
@@ -141,7 +130,6 @@ const AppHeader = ({ isGhost }: HeaderProps) => {
             </li>
           ))}
         </ul>
-         )}
       </div>
     </div>
   );

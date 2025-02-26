@@ -1,5 +1,28 @@
+
 /*-------------*/
+
+html { font-size: 62.5%;}
+
+/*-------------
+
+1920px 해상도 기준
+1px = 0.052vw
+8px = 0.417vw
+12px = 0.625vw
+16px = 0.833vw
+18px = 0.938vw
+20px = 1.042vw
+24px = 1.25vw
+28px = 1.458vw
+32px = 1.667vw
+36px = 1.875vw
+40px = 2.083vw
+44px = 2.292vw
+
+-------------*/
+
 :root {
+  /* Colors */
   --colors-gray-50: #F7F7F7;
   --colors-gray-100: #ECECED;
   --colors-gray-200: #DDDEE0;
@@ -13,4 +36,150 @@
   --colors-gray-950: #343537;
 
   --colors-primary-500: #DF3448;
+
+  /*Scale */
+  --border-radius-md: 0.625vw;
+  --border-radius-lg: 0.833vw;
+
+  --text-body-xxs: 1.2rem;
+  --text-body-xs: 1.3rem;
+  --text-body-sm: 1.4rem;
+  --text-body-md: 1.6rem;
+  --text-body-lg: 1.8rem;
+  --text-body-xl: 2rem;
+  --text-body-xxl: 2.2rem;
+
+  --text-title-xxs: 1.4rem;
+  --text-title-xs: 1.4rem;
+  --text-title-sm: 1.6rem;
+  --text-title-md: 1.8rem;
+  --text-title-lg: 2rem;
+  --text-title-xl: 2.2rem;
+  --text-title-xxl: 2.4rem;
+
+  --text-display-xl: 3.2rem;
+
+  --container-max-width: 100%;
 }
+
+@media (min-width: 1025px) {
+  :root {
+    --text-body-xxs: max(1.2rem, 0.625vw);
+    --text-body-xs: max(1.3rem, 0.677vw);
+    --text-body-sm: max(1.4rem, 0.729vw);
+    --text-body-md: max(1.6rem, 0.833vw);
+    --text-body-lg: max(1.6rem, 0.938vw);
+    --text-body-xl: max(1.8rem, 1.042vw);
+    --text-body-xxl: max(2.2rem, 1.25vw);
+
+    --text-title-xxs: max(1.4rem, 0.833vw);
+    --text-title-xs: max(1.6rem, 0.938vw);
+    --text-title-sm: max(2rem, 1.25vw);
+    --text-title-md: max(2.4rem, 1.458vw);
+    --text-title-lg: max(2.8rem, 1.667vw);
+    --text-title-xl: max(3.2rem, 1.875vw);
+    --text-title-xxl: max(3.8rem, 2.292vw);
+
+    --text-display-xl: max(4.8rem, 2.5vw);
+  }
+}
+
+@media (min-width: 1441px) {
+  :root {
+    --text-body-xxs: max(1.2rem, 0.625vw);
+    --text-body-xs: max(1.3rem, 0.677vw);
+    --text-body-sm: max(1.4rem, 0.729vw);
+    --text-body-md: max(1.6rem, 0.833vw);
+    --text-body-lg: max(1.8rem, 0.938vw);
+    --text-body-xl: max(2rem, 1.042vw);
+    --text-body-xxl: max(2.4rem, 1.25vw);
+
+    --text-title-xxs: max(1.6rem, 0.833vw);
+    --text-title-xs: max(1.8rem, 0.938vw);
+    --text-title-sm: max(2.4rem, 1.25vw);
+    --text-title-md: max(2.8rem, 1.458vw);
+    --text-title-lg: max(3.2rem, 1.667vw);
+    --text-title-xl: max(3.6rem, 1.875vw);
+    --text-title-xxl: max(4.4rem, 3.333vw);
+
+    --text-display-xl: max(6.4rem, 2.292vw);
+
+    --container-max-width: 71.875vw;
+  }
+}
+
+@import './components.css';
+@import './product.css';
+@import './brands.css';
+
+/*-------------*/
+
+body{ color: var(--colors-gray-950); letter-spacing: -0.02em; font-weight:500; }
+
+.container{
+  width:100%; position:relative; margin:0 auto; max-width:var(--container-max-width);
+  padding: 0 1.6rem;
+}
+
+.page-title-wrap{
+  width:100%; padding: 2rem 0; display:flex; justify-content:center; margin: 10vw 0 3vw 0;
+  >.page-title{
+    position:relative; text-align:center; font-size:var(--text-title-xxl); 
+    display:inline-block; line-height: 1.2em;
+    &::after{
+      content:''; display:block; width:12px; height:12px; background-color:var(--colors-primary-500);
+      position:absolute; border-radius:50%; right: -8px; top: -6px;
+    }
+  } 
+}
+
+.list-wrap-brands{
+  display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem ;
+    >.brand-card{
+      width: 100%; height:100%; aspect-ratio: 1/1.43; border-radius: var(--border-radius-lg);
+      border: 1px solid var(--colors-gray-200); overflow:hidden;
+      display:flex; flex-direction:column; background-color:white;
+      transition: filter 0.2s;
+      >a{
+        display:block; width:100%; height:100%; display:flex; flex-direction:column;
+        >.upper{
+          width:100%; height: 100%; display:flex; flex-direction:column; justify-content:center; align-items:center;
+          padding-bottom: 4%;
+          >img{
+            max-width: 60%; object-fit: contain; 
+          }
+          >.copy{
+            font-size: max(1.4rem, 0.625vw); color: var(--colors-gray-700); font-weight: 600;
+            line-height:1.3em; letter-spacing: -0.03em; text-align:center;  
+          }
+        }
+        >.thumb{
+          width:100%; height: 100%; background-color: var(--colors-gray-50); border-top: 1px solid var(--colors-gray-200);
+          display:flex; justify-content:center; align-items:center;
+          >img{
+            width:70%;
+          }
+        } 
+      }
+    &:hover{
+      filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+      border: 1px solid var(--colors-gray-300);
+    }  
+    }  
+}
+
+@media (min-width: 1025px) {
+  .list-wrap-brands{
+    grid-template-columns: repeat(3, 1fr); gap: 2.4rem ;
+    >.brand-card{
+      >a{
+        >.upper{
+          >.copy{
+            font-size: var(--text-body-xxl);
+          }
+        }
+      }
+    }
+  }   
+}
+

@@ -1,0 +1,73 @@
+
+.btn{
+  position: relative; 
+  &.btn-basic{
+    text-align: center; padding: 1.6rem 2.4rem; background-color: white; 
+    border-radius: 6rem; font-size: var(--text-body-md); font-weight: 600; cursor: pointer;
+    border: 1px solid var(--colors-gray-950);
+    transition: all 0.25s;
+    &:hover{
+      background-color: var(--colors-primary-500);
+      color: white;
+      border: 1px solid var(--colors-primary-500);
+    } 
+  }
+}
+
+.card-basic{
+  width:100%; position: relative;
+  a{
+    >.card-thumb{
+      width:100%; overflow:hidden; aspect-ratio: 5/3; position:relative;
+      border-radius: var(--border-radius-md);
+      >img{ width:100%; height:100%; object-fit: cover; position:absolute;}
+    }
+    >.card-body{
+      width:100%; padding: 1.2rem 0.8rem; position:relative;
+      >.title{
+        font-size: var(--text-body-xl); color: var(--colors-gray-950); font-weight: 600; 
+        line-height: 1.2em; 
+      }
+      >.desc{
+        display:block; font-size: var(--text-body-sm); color: var(--colors-gray-600); font-weight: 500; 
+        line-height: 1.2em; margin-top: 0.8rem;
+      }  
+    }
+  }
+  
+  &.card-tvcf{
+    >a{
+      >.card-thumb{
+        aspect-ratio: 100/63;
+      }
+    }  
+  }
+  &.body-white {
+    a{
+      >.card-body{
+        >.title{
+          color: white;
+        }
+        >.desc{
+          color: var(--colors-gray-300); 
+        }  
+      }
+    }
+  }  
+}
+
+@media (min-width: 1025px) {
+  .card-basic{
+    >a{
+      >.card-body{
+        padding: 2rem 1.2rem; 
+        >.title{
+          font-size: var(--text-body-xl); 
+        }
+        >.desc{
+          font-size: var(--text-body-md);
+        }  
+      }
+    }
+  }
+}

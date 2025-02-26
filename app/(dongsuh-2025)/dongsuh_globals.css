@@ -1,18 +1,43 @@
 @import 'tailwindcss';
 
 @theme {
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  
+  --text-body-xxs: 12px;
+  --text-body-xs: 13px;
+  --text-body-sm: 14px;
+  --text-body-md: 16px;
+  --text-body-lg: 18px;
+  --text-body-xl: 20px;
+  --text-body-xxl: 24px;
+
+  --text-title-xxs: 16px;
+  --text-title-xs: 20px;
+  --text-title-sm: 24px;
+  --text-title-md: 28px;
+  --text-title-lg: 32px;
+  --text-title-xl: 38px;
+  --text-title-xxl: 44px;
+
+  --color-gray-50: #F7F7F7;
+  --color-gray-100: #ECECED;
+  --color-gray-200: #DDDEE0;
+  --color-gray-300: #CCCED1;
+  --color-gray-400: #A9ACB1;
+  --color-gray-500: #93969E;
+  --color-gray-600: #83858D;
+  --color-gray-700: #757780;
+  --color-gray-800: #63636A;
+  --color-gray-900: #515357;
+  --color-gray-950: #343537;
+
+  --color-primary-500: #DF3448;
+
+  --container-max-width: 1332px;
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -25,6 +50,10 @@
 
 html, body{
   font-family: 'Pretendard', sans-serif; overflow-x: hidden;
+  color: var(--color-gray-900);
+}
+.poppins{
+  font-family: 'Poppins', sans-serif;
 }
 .page-wrap{
   position: relative; width:100%; min-height: 100vh;

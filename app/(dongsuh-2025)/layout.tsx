@@ -1,6 +1,8 @@
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-
+import { Poppins } from "next/font/google";
+import LenisGsap from "./dongsuh-2025/components/lenisGsap";
 import "./dongsuh_globals.css";
 
 const pretendard = localFont({
@@ -8,6 +10,11 @@ const pretendard = localFont({
   display:"swap",
   weight: "45 920",
   variable: "--font-pretendard"
+});
+
+const poppins = Poppins({ 
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -26,9 +33,10 @@ export default function RootLayout({
         className={`${pretendard.variable} antialiased`} 
         style={{ borderTopStyle: 'solid' }} // gsap관련 hydration error 해결을 위해 추가
       >
-        <div className="page-wrap">
-          {children}
-        </div> 
+        <LenisGsap>
+        {children}  
+        </LenisGsap>
+        
     </body>
     </html>
   );
