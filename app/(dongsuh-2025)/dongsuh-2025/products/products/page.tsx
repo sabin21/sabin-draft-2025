@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 export default function BrandsList(){
  
   return(
-    <>
+    <div className='page-inner-wrap'>
     
       {/* <div className='page-title-wrap'>
         <h2 className='page-title'>브랜드</h2>
@@ -37,8 +37,11 @@ export default function BrandsList(){
             disableOnInteraction: false,
           }}
           breakpoints={
-            {
-              1025:{
+              { 
+                769:{
+                slidesPerView: 3
+              },
+              1281:{
                 slidesPerView: 4
               },
               1921:{
@@ -265,9 +268,13 @@ export default function BrandsList(){
               </div>
             </a>
           </li>
-
         </ul>
+        <div className='btns-row center'>
+          <button className="btn btn-basic secondary-outline">
+            <span>더보기</span>
+          </button>
+        </div>
       </div>
-      </>
+      </div>
   )
 }
