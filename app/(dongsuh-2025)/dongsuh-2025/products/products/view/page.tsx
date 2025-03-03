@@ -35,7 +35,6 @@ export default function BrandsList(){
     if (viewportWidth >= 1024) {
       tlViewer
       .to('.product-viewer-img-wrap',{ bottom: 0, duration:0.3})
-      // .to('.product-viewer',{backgroundColor:'#E6EAEE', duration: 0.2})
       .to('.product-info-wrap', { bottom:0, duration: 0.2});
 
       ScrollTrigger.create({
