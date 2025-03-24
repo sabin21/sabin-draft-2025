@@ -1,0 +1,15 @@
+
+.full-hero-wrap{
+  position:relative; width:100%; height: 100vh; min-height: 780px; overflow: hidden;
+  &.rounded{
+    width: calc(100% - 64px); height: calc(100vh - 142px); margin: 110px auto 0 auto;
+  }
+  >.full-img{
+    width:100%; height:100%; position: absolute; top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    background-size: cover; background-position:center center;
+    &.csr-1{
+      background-image:url('/dongsuh/img/csr/csr_1_hero.jpg');
+    }
+  }
+}
