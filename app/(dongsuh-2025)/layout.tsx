@@ -1,7 +1,7 @@
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-// import { Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import LenisGsap from "./dongsuh-2025/components/lenisGsap";
 import "./dongsuh_globals.css";
 
@@ -12,10 +12,11 @@ const pretendard = localFont({
   variable: "--font-pretendard"
 });
 
-// const poppins = Poppins({ 
-//   subsets: ["latin"],
-//   weight: ["400", "700"],
-// });
+const poppins = Poppins({ 
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap"
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html>
       <body 
-        className={`${pretendard.variable} antialiased`} 
+        className={`${pretendard.variable} ${poppins} antialiased`} 
         style={{ borderTopStyle: 'solid' }} // gsap관련 hydration error 해결을 위해 추가
       >
         <LenisGsap>
