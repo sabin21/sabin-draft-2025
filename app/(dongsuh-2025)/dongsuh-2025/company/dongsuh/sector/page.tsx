@@ -22,7 +22,7 @@ export default function SectorList(){
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: `#${sectionId}`,
-            start: 'top 30%',
+            start: 'top 50%',
             end: '+=50',
             scrub: 1,
             // markers: true,
@@ -44,11 +44,26 @@ export default function SectorList(){
 
   return(
     <div className='page-inner-wrap'>
+      
+      <div className='page-title-wrap'>
+        <h2 className='page-title'>동서식품</h2>
+      </div>
+
+      <div className="chip-nav-wrap">
+        <ul className='chip-nav'>
+          <li className='chip-item'><a href="">동서식품 소개</a></li>
+          <li className='chip-item'><a href="">연혁</a></li>
+          <li className='chip-item'><a href="">사업현황</a></li>
+          <li className='chip-item active'><a href="">부문역량</a></li>
+          <li className='chip-item'><a href="">관계사</a></li>
+          <li className='chip-item'><a href="">CI</a></li>
+          <li className='chip-item'><a href="">오시는 길</a></li>
+        </ul>
+      </div>
 
       <div className="page-wrap" ref={containerRef}>
-        <span className='h-[500px] block'></span>
 
-        <section className='section-full left-img-section' id="section1">
+        <section className='container flow-padding grid-col1-2 section-company-sector' id="section1">
 
           <div className="reveal-img-wrap">
             <span className='solid-color'></span>
@@ -86,7 +101,7 @@ export default function SectorList(){
 
         </section>
 
-        <section className='section-full left-img-section' id="section2">
+        <section className='container flow-padding grid-col1-2 section-company-sector' id="section2">
 
           <div className="reveal-img-wrap">
             <span className='solid-color'></span>
@@ -119,7 +134,7 @@ export default function SectorList(){
 
         </section>
 
-        <section className='section-full left-img-section' id="section3">
+        <section className='container flow-padding grid-col1-2 section-company-sector' id="section3">
 
           <div className="reveal-img-wrap">
             <span className='solid-color'></span>
@@ -153,7 +168,7 @@ export default function SectorList(){
 
         </section>
 
-        <section className='section-full left-img-section' id="section4">
+        <section className='container flow-padding grid-col1-2 section-company-sector' id="section4">
 
           <div className="reveal-img-wrap">
             <span className='solid-color'></span>
@@ -187,7 +202,7 @@ export default function SectorList(){
 
         </section>
 
-        <section className='section-full left-img-section' id="section5">
+        <section className='container flow-padding grid-col1-2 section-company-sector' id="section5">
 
           <div className="reveal-img-wrap">
             <span className='solid-color'></span>
@@ -218,7 +233,7 @@ export default function SectorList(){
 
         </section>
 
-        <section className='section-full left-img-section' id="section6">
+        <section className='container flow-padding grid-col1-2 section-company-sector' id="section6">
 
           <div className="reveal-img-wrap">
             <span className='solid-color'></span>
@@ -258,7 +273,7 @@ export default function SectorList(){
 
         </section>
 
-        <section className='section-full left-img-section' id="section7">
+        <section className='container flow-padding grid-col1-2 section-company-sector' id="section7">
 
           <div className="reveal-img-wrap">
             <span className='solid-color'></span>

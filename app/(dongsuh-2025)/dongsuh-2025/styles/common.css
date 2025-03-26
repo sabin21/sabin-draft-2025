@@ -122,18 +122,39 @@ html { font-size: 62.5%;}
 
 /*-----------------------------*/
 
-body{ color: var(--colors-gray-950); letter-spacing: -0.02em; font-weight:500; }
-
-.container{
-  width:100%; position:relative; margin:0 auto; 
-  max-width:var(--container-max-width);
-  padding: 0 1.6rem;
-}
+body{ color: var(--colors-gray-950); letter-spacing: -0.025em; font-weight:500; }
 
 .page-inner-wrap{
   position:relative; width:100%; 
   padding-bottom: max(12rem, 15vh);
 }
+
+.container{
+  width:100%; position:relative; margin:0 auto; 
+  max-width:var(--container-max-width);
+  padding: 0 1.6rem;
+  &.flow-padding{
+    padding: 0 1.6rem; max-width:100%;
+  }
+}
+@media (min-width: 1025px){
+  .container{
+    &.flow-padding{
+      padding: 0 3.2rem; 
+    }
+  }
+}
+
+.grid-col1-2{
+  width:100%; display:grid; grid-template-columns:1fr;
+}
+@media (min-width: 1025px){
+  .grid-col1-2{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/*-----------------------------*/
 
 .page-title-wrap{
   width:100%; display:flex; justify-content:center; 
@@ -147,6 +168,11 @@ body{ color: var(--colors-gray-950); letter-spacing: -0.02em; font-weight:500; }
     }
   } 
 }
+.page-inner-wrap:has(.chip-nav-wrap){
+  .page-title-wrap{
+    margin-bottom: 4.8rem;
+  }
+}
 
 @media (min-width: 1025px) {
   .page-title-wrap{
@@ -159,16 +185,6 @@ body{ color: var(--colors-gray-950); letter-spacing: -0.02em; font-weight:500; }
   }
 }
 
-/*-----------------------------*/
-
-.grid-col1-2{
-  width:100%; display:grid; grid-template-columns:1fr;
-}
-@media (min-width: 1025px){
-  .grid-col1-2{
-    grid-template-columns: 1fr 1fr;
-  }
-}
 
 /*-----------------------------*/
 
@@ -179,6 +195,41 @@ body{ color: var(--colors-gray-950); letter-spacing: -0.02em; font-weight:500; }
 .mb-16{ margin-bottom: 1.6rem; }
 .mb-24{ margin-bottom: 2.4rem; }
 .mb-32{ margin-bottom: 3.2rem; }
+
+/*-----------------------------*/
+
+.chip-nav-wrap{
+  position:relative; width:100%; margin-bottom: 5.6rem; overflow:hidden; padding: 1.6rem 0;
+  >.chip-nav{
+    position:relative; margin:0 auto; width:100%; display:flex; justify-content:center; gap: 0.6rem;
+    >.chip-item{
+      flex-shrink:0;
+      a{
+        color: var(--colors-gray-900); font-size: var(--text-body-md); font-weight: 700;
+        padding: 0.8rem 1.6rem; border-radius: 4rem; text-align:center; line-height: 1em;
+      }
+      &.active{
+        a{
+          background-color: var(--colors-primary-500); color:white;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1025px){
+  .chip-nav-wrap{
+    margin-bottom: 16rem;
+    >.chip-nav{
+      gap: 0.6rem;
+      >.chip-item{
+        a{
+          font-size: var(--text-body-lg); 
+          padding: 1.4rem 2.4rem; 
+        }
+      }
+    }
+  }
+}
 
 /* CSR ---------------------*/
 
