@@ -1,4 +1,13 @@
 
+/*-----------------------*/
+
+.section-ceo{
+  width:100%; height:100vh; min-height: 1000px; background-color: var(--colors-warm-100);
+  margin-top: 12rem;
+}
+
+/*-----------------------*/
+
 .section-company-sector{
   margin-bottom: 12rem !important;
   
@@ -59,7 +68,7 @@
       font-weight: 700; margin-bottom:0.8rem;
     }
     >.headline{
-      font-size: max(32px, 2vw); margin-bottom: 1em; line-height: 1.2em; letter-spacing: -0.03em;
+      font-size: var(--text-title-xxl); margin-bottom: 1em; line-height: 1.2em; letter-spacing: -0.03em;
     }
     >.desc{
       >.strong{
@@ -74,9 +83,9 @@
   .reveal-text-wrap{
     padding: 6.4rem 30.63% 0 11.88%;
     >.text-inner{
-      >.headline{
+      /* >.headline{
         font-size: max(44px, 2vw);
-      }
+      } */
     }
   }
 }
