@@ -56,7 +56,7 @@ html { font-size: 62.5%;}
   --text-title-md: 1.8rem;
   --text-title-lg: 2rem;
   --text-title-xl: 2.2rem;
-  --text-title-xxl: max(28px, 2vw);
+  --text-title-xxl: clamp(24px, 5vw, 28px);
 
   --text-display-xl: 3.2rem;
 
@@ -260,12 +260,13 @@ body{ color: var(--colors-gray-950); letter-spacing: -0.025em; font-weight:500; 
       
     }
     &.visual-screen{
-      overflow:hidden; height:calc(100vh - 64px); min-height: 900px; 
+      overflow:hidden; height:calc(100vh - 64px); min-height: 800px; 
       width:100%;
     }
     
     &.copy-screen{
-      padding: 80px 0; padding-bottom: 20vh;
+      min-height:100vh; padding: 20vh 0; margin-bottom: 5vh;
+      display:flex; justify-content:center; align-items:center;
       >.copy-wrap{
         width:80%; margin: 0 auto; display:flex; flex-direction:column; justify-content:center;
         >p{
@@ -306,7 +307,7 @@ body{ color: var(--colors-gray-950); letter-spacing: -0.025em; font-weight:500; 
         padding: 32px 0 80px 0;
       }
       &.copy-screen{
-        padding: 120px 0; padding-bottom: 50vh;
+        padding: 120px 0; 
         >.copy-wrap{
           width:33.75%;
           >p{
@@ -326,6 +327,7 @@ body{ color: var(--colors-gray-950); letter-spacing: -0.025em; font-weight:500; 
     }
   }
 }
+
 .visual-screen-outer{
   position:relative; width:100%; height:calc(100vh - 32px); min-height: 700px; 
   overflow:hidden; border-radius:var(--border-radius-xl);
@@ -350,9 +352,10 @@ body{ color: var(--colors-gray-950); letter-spacing: -0.025em; font-weight:500; 
     }
   }
 }
+
 @media (min-width: 1025px){
   .visual-screen-outer{
-    min-height: 900px; 
+    min-height: 800px; 
   }
 }
 /* CSR ---------------------*/

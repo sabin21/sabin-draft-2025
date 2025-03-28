@@ -40,6 +40,7 @@ export default function SectorList(){
         start: "top top",
         end: "bottom bottom",
         pin: true,
+        pinSpacing: false,
         animation: overlayTl.to(overlay, {opacity: 1})
       });
     });
