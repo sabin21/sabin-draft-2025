@@ -32,10 +32,7 @@ export default function SectorList(){
         .from(`#${sectionId} .img-title .title-row h2` , { y: "120%", duration: 1 })
 
         timeline
-          // .from(`#${sectionId} .reveal-img-wrap`, { backgroundColor: "gray", duration: 1 })
           .from(`#${sectionId} .reveal-img`, { y: "100%", duration: 1 })
-          // .from(`#${sectionId} .reveal-img`, { opacity: 0, duration: 1 })
-          // .from(`#${sectionId} .img-title h2`, { opacity: 0.2});
       })
     }, containerRef)
 
