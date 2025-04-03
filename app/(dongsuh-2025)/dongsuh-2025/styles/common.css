@@ -114,6 +114,7 @@ html { font-size: 62.5%;}
   }
 }
 
+@import './home.css';
 @import './components.css';
 @import './product.css';
 @import './brands.css';
@@ -482,6 +483,9 @@ body{ color: var(--colors-gray-950); letter-spacing: -0.025em; font-weight:500; 
           position:absolute; border-radius:50%; right: 0; top: -6px;
         }
       }
+    }
+    >p{
+      &:not(:first-child){ margin-bottom: 3.2rem; }
     }
   }
 }

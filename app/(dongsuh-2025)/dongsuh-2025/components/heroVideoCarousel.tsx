@@ -2,27 +2,30 @@ import { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 const HeroVideoCarousel = () => {
 
   const slides = [
     {
       video: "/dongsuh/videos/hero_mite.mp4",
-      headline: "Slide 1 Headline",
-      image: "",
+      headline: "부드러운 거품속 더 진해진 초콜릿맛",
+      headlineHtml: '<h2>부드러운 거품속 <br />더 진해진 초콜릿맛</h2>',
+      imageSrc: "/dongsuh/img/home/hero_logo_mite.png",
       paginationText: "Slide 1"
     },
     {
       video: "/dongsuh/videos/hero_maxim_white.mp4",
       headline: "Slide 2 Headline",
-      image: "",
+      headlineHtml: '<h2>나에게 더 부드럽게 <br />맥심 화이트골드</h2>',
+      imageSrc: "/dongsuh/img/home/hero_logo_maxim.png",
       paginationText: "Slide 2"
     },
     {
       video: "/dongsuh/videos/hero_kanu.mp4",
       headline: "Slide 3 Headline",
-      image: "",
+      headlineHtml: '<h2>나를 찾는 순간, <br />나를 찾는 커피</h2>',
+      imageSrc: "/dongsuh/img/home/hero_logo_kanu.png",
       paginationText: "Slide 3"
     },
   ];
@@ -34,7 +37,6 @@ const HeroVideoCarousel = () => {
   const handleSlideChange = (swiper: any) => {
     videoRefs.current.forEach((video) => {
       if (video) {
-        // video.pause();
         video.currentTime = 0;
       }
     });
@@ -45,10 +47,7 @@ const HeroVideoCarousel = () => {
       const playPromise = currentVideo.play();
       if (playPromise !== undefined) {
         playPromise
-          .then(() => {
-            console.log("비디오 재생 시작");
-          })
-          .catch((error) => {
+          playPromise.catch((error) => {
             console.error("비디오 재생 실패:", error);
           });
       }
@@ -75,10 +74,7 @@ const HeroVideoCarousel = () => {
       const playPromise = videoRefs.current[0].play();
       if (playPromise !== undefined) {
         playPromise
-          .then(() => {
-            console.log("초기 비디오 재생 시작");
-          })
-          .catch((error) => {
+          playPromise.catch((error) => {
             console.error("초기 비디오 재생 실패:", error);
           });
       }
@@ -86,20 +82,26 @@ const HeroVideoCarousel = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden w-screen mx-auto h-screen">
+    <div className="home-hero-wrap">
       <Swiper
-        modules={[Navigation]}
-        navigation
+        modules={[Pagination]}
         loop={true}
         onSlideChange={handleSlideChange}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        className="w-full h-full"
+        pagination={{
+          el: '.hero-pagination',
+          clickable: true,
+          // renderBullet: (index, className) => {
+          //   return `<span class="${className}">${slides[index].paginationText}</span>`;
+          // },
+          
+        }}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className="w-full h-full relative">
             {index === swiperRef.current?.realIndex && (
               <div
-                className="absolute bottom-0 left-0 h-1 bg-red-500 transition-all ease-linear"
+                className="home-hero-video-bar"
                 style={{ width: `${progress}%` }}
               ></div>
             )}
@@ -111,16 +113,22 @@ const HeroVideoCarousel = () => {
               muted
               onEnded={handleVideoEnded}
               preload="none"
+              data-keepplaying
               onTimeUpdate={() => handleTimeUpdate(index)}
             >
               <source src={slide.video} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <div className="absolute bottom-20 left-20 z-10 text-white text-4xl font-bold">
-              {slide.headline}
+            <div className="home-hero-title"
+            >
+              <img src={slide.imageSrc} alt="" />
+              <div className="hero-title-row" dangerouslySetInnerHTML={{ __html: slide.headlineHtml }}>
+
+              </div>
             </div>
           </SwiperSlide>
         ))}
+        <div className="hero-pagination swiper-pagination"></div>
       </Swiper>
 
       

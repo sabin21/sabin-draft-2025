@@ -1,7 +1,7 @@
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Inter, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import LenisGsap from "./dongsuh-2025/components/lenisGsap";
 import "./dongsuh_globals.css";
 
@@ -17,6 +17,13 @@ const poppins = Poppins({
   weight: ["400", "700"],
   display: "swap"
 });
+
+const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false
+};
 
 export const metadata: Metadata = {
   title: "Create Next App",

@@ -185,13 +185,6 @@ export default function BrandsList(){
                 시, 소설, 수필, 아동문학에 관심 있는 회원들이 서로의 생활 체험과 문화적 정서를 함께 나누는 문학 사랑방의 역할을 하고 있습니다.
                 동서식품이 문학강연, 문학기행, 동인지 발간 등의 문학활동을 지원하고 있습니다.
               </p>
-            </div>
-          </div>
-
-          <div className="csr-content-block">
-            <div className="picture">
-            </div>
-            <div className="text-block">
               <p>
               전국 각지에서 회원들이 활동하고 있으며 동서문학회를 디딤돌 삼아 문단에 진출하여 작가로서 활발한 활동을 펴고 있는 회원들도 늘어나고 있습니다.
 
@@ -199,6 +192,8 @@ export default function BrandsList(){
               </p>
             </div>
           </div>
+
+          
 
         </div>
       </section>
