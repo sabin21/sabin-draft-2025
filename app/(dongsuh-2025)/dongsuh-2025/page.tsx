@@ -4,7 +4,7 @@ import React from 'react';
 import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import { useGSAP } from "@gsap/react";
 import HeroVideoCarousel from './components/heroVideoCarousel';
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -46,66 +46,29 @@ export default function Home(){
     setupMarquee(containerRef2, contentRef2);
   }, []);
 
-  
-  const newsPosts = [
-    {
-      thumbnail: "/dongsuh/img/news_thumb_1.png",
-      headline: "동서식품 ‘카누 이노베이션’ 실시",
-      date: "2025.01.15",
-      alt: "News Image"
-    },
-    {
-      thumbnail: "/dongsuh/img/news_thumb_2.png",
-      headline: "동서식품 ‘카누 이노베이션’ 실시",
-      date: "2025.01.15",
-      alt: "News Image"
-    },
-    {
-      thumbnail: "/dongsuh/img/news_thumb_3.png",
-      headline: "동서식품 ‘카누 이노베이션’ 실시",
-      date: "2025.01.15",
-      alt: "News Image"
-    }
-  ];
+  // const homeBackWrap = useRef<HTMLDivElement | null>(null);
+  // const homeBackBig = useRef<HTMLDivElement | null>(null);
 
-  // Carousel 네비게이션 효과
-  const [showPrev, setShowPrev] = useState(false);
-  const [showNext, setShowNext] = useState(false);
-  // const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const swiperRef = useRef<any>(null);
-  const carouselRef = useRef<HTMLDivElement | null>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!carouselRef.current) return;
-
-    const rect = carouselRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY + rect.height/4;
-    console.log(e.clientY)
-    const width = rect.width;
-
-    // setCursorPos({ x, y });
-    setShowPrev(x < width / 2);
-    setShowNext(x > width / 2);
-  };
-
-  const handleMouseLeave = () => {
-    setShowPrev(false);
-    setShowNext(false);
-  };
-
-  const handlePrev = () => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.slidePrev();
-    }
-  };
-
-  const handleNext = () => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.slideNext();
-    }
-  };
-
+  useGSAP(()=>{
+    const homeBackBig = document.querySelector(".big-one");
+    ScrollTrigger.create({
+      trigger:".home-csr-section",
+      start:"top center",
+      end:"+=600",
+      animation: gsap.from(homeBackBig, {scale:0.5, backgroundColor:"#FCF5E6", duration:1}),
+      scrub:true,
+      // markers:true
+    });
+    ScrollTrigger.create({
+      trigger:".home-news-section",
+      start:"top center",
+      end:"+=600",
+      animation: gsap.to(homeBackBig, {bottom:"-10vw", right:'40vw', opacity:0.6 , duration:1}),
+      scrub:true,
+      // markers:true
+    });
+  }
+);
 
   return(
     <>
@@ -131,8 +94,10 @@ export default function Home(){
                 <img src="/dongsuh/img/home/product_1.png" alt="" />
               </div>
               <div className="card-body">
-                <span className="brand-name">Kanu</span>
-                <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                <span className="card-body-inner">
+                  <span className="brand-name">Kanu</span>
+                  <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                </span>
               </div>
               <div className="tag-new"></div>
             </span>
@@ -143,8 +108,10 @@ export default function Home(){
                 <img src="/dongsuh/img/home/product_2.png" alt="" />
               </div>
               <div className="card-body">
-                <span className="brand-name">Kanu</span>
-                <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                <span className="card-body-inner">
+                  <span className="brand-name">Kanu</span>
+                  <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                </span>
               </div>
               <div className="tag-new"></div>
             </span>
@@ -155,8 +122,10 @@ export default function Home(){
                 <img src="/dongsuh/img/home/product_3.png" alt="" />
               </div>
               <div className="card-body">
-                <span className="brand-name">Kanu</span>
-                <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                <span className="card-body-inner">
+                  <span className="brand-name">Kanu</span>
+                  <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                </span>
               </div>
             </span>
           </div>
@@ -166,8 +135,10 @@ export default function Home(){
                 <img src="/dongsuh/img/home/product_4.png" alt="" />
               </div>
               <div className="card-body">
-                <span className="brand-name">Kanu</span>
-                <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                <span className="card-body-inner">
+                  <span className="brand-name">Kanu</span>
+                  <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                </span>
               </div>
               <div className="tag-new"></div>
             </span>
@@ -178,8 +149,10 @@ export default function Home(){
                 <img src="/dongsuh/img/home/product_5.png" alt="" />
               </div>
               <div className="card-body">
-                <span className="brand-name">Kanu</span>
-                <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                <span className="card-body-inner">
+                  <span className="brand-name">Kanu</span>
+                  <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                </span>
               </div>
             </span>
           </div>
@@ -189,8 +162,10 @@ export default function Home(){
                 <img src="/dongsuh/img/home/product_6.png" alt="" />
               </div>
               <div className="card-body">
-                <span className="brand-name">Kanu</span>
-                <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                <span className="card-body-inner">
+                  <span className="brand-name">Kanu</span>
+                  <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                </span>
               </div>
             </span>
           </div>
@@ -200,8 +175,10 @@ export default function Home(){
                 <img src="/dongsuh/img/home/product_7.png" alt="" />
               </div>
               <div className="card-body">
-                <span className="brand-name">Kanu</span>
-                <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                <span className="card-body-inner">
+                  <span className="brand-name">Kanu</span>
+                  <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                </span>
               </div>
               <div className="tag-new"></div>
             </span>
@@ -212,8 +189,10 @@ export default function Home(){
                 <img src="/dongsuh/img/home/product_8.png" alt="" />
               </div>
               <div className="card-body">
-                <span className="brand-name">Kanu</span>
-                <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                <span className="card-body-inner">
+                  <span className="brand-name">Kanu</span>
+                  <h4>카누 싱글오리진 <br /> 에티오피아</h4>
+                </span>
               </div>
             </span>
           </div>
@@ -311,7 +290,6 @@ export default function Home(){
 
         <div 
           className="csr-carousel-wrap"
-          ref={carouselRef}
         >
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -339,7 +317,6 @@ export default function Home(){
               delay: 3000
           }}
           speed={ 800 }
-          ref={swiperRef}
         >
         <SwiperSlide>
           <a className='home-csr-card' href='#'>
@@ -422,45 +399,138 @@ export default function Home(){
       </Swiper>
       <div
             className="swiper-button-prev"
-            onClick={handlePrev}
           />
           <div
             className="swiper-button-next"
-            // style={{
-            //   display: showNext ? 'block' : 'none',
-            //   position: 'absolute',
-            //   left: `${cursorPos.x}px`,
-            //   top: `${cursorPos.y}px`,
-            //   transform: 'translate(-50%, -50%)',
-            // }}
-            onClick={handleNext}
           />
 
         </div>
       </section>
 
-      <section className="home-news-section">
-        <div className='container'>
-          <div className="section-title">
-            <h2 className="section-title">Dongsuh News</h2>
-            <button className='btn-more'>더보기</button>
+      <div className="home-page-back">
+        <span className="big-one"></span>
+      </div>
+
+      <section className='home-news-section'>
+        <div className="container left-padding-container">
+          <div className="title-red-circle">
+            <span className='small-title'>DONGSUH</span>
+            <h3 className='eng'>NEWS</h3>
+            <button className='sub-circle-btn'>
+              <svg width="13" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg" className='icon-more-next-arrow'>
+                <path d="M1 1L11 11L1 21" stroke="white" strokeWidth="3" strokeLinecap="round"/>
+              </svg>
+            </button>
           </div>
-          <div className="news-wrap">
-            {newsPosts.map((post, index) => (
-              <a key={index} className="news-item" href="#">
-                <div className='news-thumb'>
-                  <img src={post.thumbnail} alt={post.alt} />
+          <div className="inner-wrap">
+            <div className="card-basic card-tvcf">
+              <a href="">
+                <div className="card-thumb">
+                  <img src="/dongsuh/img/news_thumb_1.png" alt="" />
                 </div>
-                <div className="news-item-body">
-                  <h2 className="news-title">{post.headline}</h2>
-                  <p className="news-date">{post.date}</p>
-                </div> 
+                <div className="card-body">
+                  <h4 className='title'>진하게 부드럽게 라떼처럼 즐겨봐!</h4>
+                  <span className="desc">2024.12.10</span>
+                </div>
               </a>
-            ))}
-            
+            </div>
+            <div className="card-basic card-tvcf">
+              <a href="">
+                <div className="card-thumb">
+                  <img src="/dongsuh/img/news_thumb_2.png" alt="" />
+                </div>
+                <div className="card-body">
+                  <h4 className='title'>진하게 부드럽게 라떼처럼 즐겨봐!</h4>
+                  <span className="desc">2024.12.10</span>
+                </div>
+              </a>
+            </div>
+            <div className="card-basic card-tvcf">
+              <a href="">
+                <div className="card-thumb">
+                  <img src="/dongsuh/img/news_thumb_3.png" alt="" />
+                </div>
+                <div className="card-body">
+                  <h4 className='title'>진하게 부드럽게 라떼처럼 즐겨봐!</h4>
+                  <span className="desc">2024.12.10</span>
+                </div>
+              </a>
+            </div>
+            <div className="card-basic card-tvcf">
+              <a href="">
+                <div className="card-thumb">
+                  <img src="/dongsuh/img/news_thumb_1.png" alt="" />
+                </div>
+                <div className="card-body">
+                  <h4 className='title'>진하게 부드럽게 라떼처럼 즐겨봐!</h4>
+                  <span className="desc">2024.12.10</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      <section className='home-tvcf-section'>
+        <div className="container left-padding-container">
+          <div className="title-red-circle">
+            <span className='small-title'>DONGSUH</span>
+            <h3 className='eng'>TV CF</h3>
+            <button className='sub-circle-btn'>
+              <svg width="13" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg" className='icon-more-next-arrow'>
+                <path d="M1 1L11 11L1 21" stroke="white" strokeWidth="3" strokeLinecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <div className="inner-wrap">
+            <div className="card-basic card-tvcf">
+              <a href="">
+                <div className="card-thumb">
+                  <img src="/dongsuh/img/tvcf_thumb/cf_1.png" alt="" />
+                </div>
+                <div className="card-body">
+                  <h4 className='title'>진하게 부드럽게 라떼처럼 즐겨봐!</h4>
+                  <span className="desc">맥심 모카골드</span>
+                </div>
+              </a>
+            </div>
+            <div className="card-basic card-tvcf">
+              <a href="">
+                <div className="card-thumb">
+                  <img src="/dongsuh/img/tvcf_thumb/cf_2.png" alt="" />
+                </div>
+                <div className="card-body">
+                  <h4 className='title'>진하게 부드럽게 라떼처럼 즐겨봐!</h4>
+                  <span className="desc">맥심 모카골드</span>
+                </div>
+              </a>
+            </div>
+            <div className="card-basic card-tvcf">
+              <a href="">
+                <div className="card-thumb">
+                  <img src="/dongsuh/img/tvcf_thumb/cf_3.png" alt="" />
+                </div>
+                <div className="card-body">
+                  <h4 className='title'>진하게 부드럽게 라떼처럼 즐겨봐!</h4>
+                  <span className="desc">맥심 모카골드</span>
+                </div>
+              </a>
+            </div>
+            <div className="card-basic card-tvcf">
+              <a href="">
+                <div className="card-thumb">
+                  <img src="/dongsuh/img/tvcf_thumb/cf_4.png" alt="" />
+                </div>
+                <div className="card-body">
+                  <h4 className='title'>진하게 부드럽게 라떼처럼 즐겨봐!</h4>
+                  <span className="desc">맥심 모카골드</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       </>
       // </ReactLenis>
   )

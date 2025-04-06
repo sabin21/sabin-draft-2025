@@ -46,8 +46,8 @@
   a{
     >.card-thumb{
       width:100%; overflow:hidden; aspect-ratio: 5/3; position:relative;
-      border-radius: var(--border-radius-md);
-      >img{ width:100%; height:100%; object-fit: cover; position:absolute;}
+      border-radius: var(--border-radius-lg);
+      >img{ width:100%; height:100%; object-fit: cover; position:absolute; transition: transform 0.2s; }
     }
     >.card-body{
       width:100%; padding: 1.2rem 0.8rem; position:relative;
@@ -89,7 +89,14 @@
         }  
       }
     }
-  }  
+  }
+  &:hover{
+    a{
+      >.card-thumb{
+        >img{ transform:scale(1.06);}
+      }
+    }
+  } 
 }
 
 @media (min-width: 1025px) {
@@ -98,7 +105,7 @@
       >.card-body{
         padding: 2rem 1.2rem; 
         >.title{
-          font-size: var(--text-body-xl); 
+          font-size: var(--text-title-sm); 
         }
         >.desc{
           font-size: var(--text-body-md);
