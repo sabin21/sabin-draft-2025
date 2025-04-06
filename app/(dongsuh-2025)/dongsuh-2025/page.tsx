@@ -80,12 +80,20 @@ export default function Home(){
       <section className='home-product-section'>
         <div className="home-title-big">
           <div className="inner-wrap">
-            <h2 className='eng'>Products</h2>
+            <div className="headline-row">
+              <h2 className='eng'>Products</h2>
+              <button className="btn btn-home-more">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.5 15L13.5 10L8.5 5" stroke="black" strokeWidth="1.3334" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
             <p className='copy'>
               삶에 향기를 더하는 새로운<br />
               동서식품의 제품들
             </p>
           </div>
+          
         </div>
         <div className="home-product-wrap">
           <div className="home-product-card">
@@ -207,12 +215,20 @@ export default function Home(){
 
         <div className="home-title-big">
           <div className="inner-wrap">
-            <h2 className='eng'>Brands</h2>
+            <div className="headline-row">
+              <h2 className='eng'>Brands</h2>
+              <button className="btn btn-home-more">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.5 15L13.5 10L8.5 5" stroke="black" strokeWidth="1.3334" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
             <p className='copy'>
               생활속에 향기와 건강을 더하는<br />
               동서식품 브랜드들
             </p>
           </div>
+          
         </div>
 
         <div className="brands-track-outer">
@@ -280,7 +296,10 @@ export default function Home(){
       <section className='home-csr-section'>
         <div className="home-title-big">
           <div className="inner-wrap">
-            <h2>사회공헌</h2>
+            <div className="headline-row">
+              <h2>사회공헌</h2>
+            </div>
+            
             <p className='copy'>
               따뜻한 함께하는 사회를 위한<br />
               동서식품의 사회공헌 활동
