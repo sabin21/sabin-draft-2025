@@ -46,9 +46,6 @@ export default function Home(){
     setupMarquee(containerRef2, contentRef2);
   }, []);
 
-  // const homeBackWrap = useRef<HTMLDivElement | null>(null);
-  // const homeBackBig = useRef<HTMLDivElement | null>(null);
-
   useGSAP(()=>{
     const homeBackBig = document.querySelector(".big-one");
     ScrollTrigger.create({
@@ -297,7 +294,7 @@ export default function Home(){
         <div className="home-title-big">
           <div className="inner-wrap">
             <div className="headline-row">
-              <h2>사회공헌</h2>
+              ㅌ<h2>사회공헌</h2>
             </div>
             
             <p className='copy'>
